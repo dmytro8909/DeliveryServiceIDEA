@@ -10,24 +10,23 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import db.ConnectionPool;
 import db.SQLConstants;
 import entities.Direction;
+import static db.ConnectionPool.getConnection;
 
 public class DirectionDAO implements AbstractDAO<Direction> {
 
 	private static final Logger LOGGER = LogManager.getLogger(DirectionDAO.class);
-	
+
 	public DirectionDAO() {}
 	
 	@Override
 	public List<Direction> getAll() {
 		List<Direction> directions = new ArrayList<>();
-		ResultSet rs = null;
-		ConnectionPool pool = ConnectionPool.getInstance();
-		try (Connection connection = pool.getConnection();
-				 Statement stmt = connection.createStatement()) {
-				
+		ResultSet rs;
+		try (Connection connection = getConnection();
+			 Statement stmt = connection.createStatement()) {
+
 				rs = stmt.executeQuery(SQLConstants.GET_ALL_DIRECTIONS);
 				while (rs.next()) {
 					Direction direction = new Direction();

@@ -1,0 +1,19 @@
+
+R
+java:S1854"9Remove this useless assignment to local variable "width".(Äþù´þÿÿÿÿ
+N
+java:S1854":Remove this useless assignment to local variable "weight".(³ÞÛü
+C
+java:S1481"*Remove this unused "width" local variable.(Äþù´þÿÿÿÿ
+=
+java:S1481")Remove this unused "page" local variable.(åñâ¤
+M
+java:S1854":Remove this useless assignment to local variable "length".(ú•Ñr
+N
+java:S1854":Remove this useless assignment to local variable "height".(íŸ˜Ý
+?
+java:S1481"+Remove this unused "height" local variable.(íŸ˜Ý
+?
+java:S1481"+Remove this unused "weight" local variable.(³ÞÛü
+>
+java:S1481"+Remove this unused "length" local variable.(ú•Ñr

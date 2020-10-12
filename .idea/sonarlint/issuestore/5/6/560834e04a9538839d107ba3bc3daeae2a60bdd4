@@ -1,0 +1,11 @@
+
+L
+java:S2589"8Remove this expression which always evaluates to "false"(ù…ñ™
+K
+java:S1128"2Remove this unused import 'controller.Controller'.(Â€˜£þÿÿÿÿ
+U
+java:S1128"<Remove this unused import 'org.apache.logging.log4j.Logger'.(»¯øÿÿÿÿ
+T
+java:S1128"@Remove this unused import 'org.apache.logging.log4j.LogManager'.(Ë”Ëé
+B
+java:S1128")Remove this unused import 'db.DBManager'.(„œˆÜúÿÿÿÿ

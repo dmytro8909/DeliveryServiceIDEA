@@ -8,7 +8,7 @@
 	<body class="text-center">
 		<%@ include file="/views/jspf/header.jspf"%>
 		<c:if test="${empty user}">
-			 <%@include file="/views/jspf/main_not_register.jspf"%>
+			 <%@ include file="/views/jspf/main_not_register.jspf"%>
 		</c:if>
 		<%@ include file="/views/jspf/footer.jspf"%>
 	</body>

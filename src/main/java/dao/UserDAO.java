@@ -8,10 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static db.ConnectionPool.getConnection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import db.ConnectionPool;
 import db.SQLConstants;
 import db.DBManager;
 import entities.User;
@@ -19,15 +19,13 @@ import entities.User;
 public class UserDAO implements AbstractDAO<User> {
 	
 	private DBManager dbManager = new DBManager();
-	private ConnectionPool pool = ConnectionPool.getInstance();
 	private static final Logger LOGGER = LogManager.getLogger(UserDAO.class);
 
 	@Override
 	public List<User> getAll() {
 		List<User> users = new ArrayList<>();
 		ResultSet rs = null;
-		ConnectionPool pool = ConnectionPool.getInstance();
-		try (Connection connection = pool.getConnection();
+		try (Connection connection = getConnection();
 			 Statement stmt = connection.createStatement()) {
 			
 			rs = stmt.executeQuery(SQLConstants.GET_ALL_USERS);
@@ -69,7 +67,7 @@ public class UserDAO implements AbstractDAO<User> {
 		ResultSet rs = null;
 		Connection connection = null;
 		try {
-			connection = pool.getConnection();
+			connection = getConnection();
 			pstmt = connection.prepareStatement(SQLConstants.SQL_FIND_USER_BY_LOGIN);
 			pstmt.setString(1, login);
 			rs = pstmt.executeQuery();
@@ -102,11 +100,9 @@ public class UserDAO implements AbstractDAO<User> {
 			               String password) throws SQLException {
 		Connection connection = null;
 		PreparedStatement pstmt = null;
-		ConnectionPool pool = ConnectionPool.getInstance();
 		try {
-			connection = pool.getConnection();
+			connection = getConnection();
 			pstmt = connection.prepareStatement(SQLConstants.INSERT_USER);
-			connection.setAutoCommit(false);
 			pstmt.setString(1, name);
 			pstmt.setString(2, lastName);
 			pstmt.setString(3, login);

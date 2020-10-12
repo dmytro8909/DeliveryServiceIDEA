@@ -15,9 +15,22 @@ public class ConnectionPool {
 
 	private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 	private static ConnectionPool instance = null;
+	private static DataSource dataSource;
 
-	private ConnectionPool() {}
-	
+	private ConnectionPool() {
+		Context initCtx;
+		Context envCtx = null;
+		try {
+			initCtx = new InitialContext();
+			envCtx = (Context) initCtx.lookup("java:comp/env");
+		// delivery_service - the name of data source
+		dataSource =
+				(DataSource)envCtx.lookup("jdbc/DeliveryService");
+		} catch (NamingException e) {
+			LOGGER.error("NamingException", e);
+		}
+	}
+
 	public static synchronized ConnectionPool getInstance() {
 		if (instance == null) {
 			instance = new ConnectionPool();
@@ -25,21 +38,12 @@ public class ConnectionPool {
 		return instance;
 	}
 	
-	public Connection getConnection() {
-		Context initCtx;
-		Context envCtx;
+	public static Connection getConnection() {
 		Connection connection = null;
 		try {
-			initCtx = new InitialContext();
-			envCtx = (Context) initCtx.lookup("java:comp/env");
-			// delivery_service - the name of data source
-			DataSource dataSource = 
-					(DataSource)envCtx.lookup("jdbc/DeliveryService");
 			connection = dataSource.getConnection();
-		} catch (NamingException e) {
-			LOGGER.error("Naming exception");
 		} catch (SQLException e) {
-			LOGGER.error("SQLException");
+			LOGGER.error("SQLException", e);
 		} 
 		return connection;
 	}
