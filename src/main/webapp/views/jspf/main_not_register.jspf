@@ -1,0 +1,94 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col"></div>
+		<div class="col">
+		<h2>Calculate shipping cost</h2>
+		<form name="calculateShippingCostForm" method="GET" 
+		      action="/DeliveryService/index.jsp" 
+		      class="needs-validation" novalidate>
+			<input type="hidden" name="command" value="calculateShippingCost" />
+			<div class="form-group">
+    			<label for="selectDirection">Select direction</label>
+			    <select class="form-control" id="selectDirection">
+			    <c:forEach items="${directionList}" var="direction">
+			      <option value="${direction.id}">${direction.direction}</option>
+			    </c:forEach>
+			    </select>
+  			</div>
+  			<h2>Enter package specifications</h2>
+			<div class="form-group">
+    			<label for="inputWeight">Weight</label>
+    			<input type="number" class="form-control" name="weight" 
+    			       id="inputWeight" placeholder="Weight kg" required>
+    			<div class="valid-feedback">
+        			Looks good!
+      			</div>
+      			<div class="invalid-feedback">
+        			Please enter a weight.
+      			</div>
+  			</div>
+			<div class="form-group">
+    			<label for="inputLength">Length</label>
+    			<input type="number" class="form-control" name="length"
+    			       id="inputLength" placeholder="Length sm" required>
+				<div class="valid-feedback">
+        			Looks good!
+      			</div>
+      			<div class="invalid-feedback">
+        			Please enter a length.
+      			</div>
+  			</div>
+			<div class="form-group">
+    			<label for="inputWidth">Width</label>
+    			<input type="number" class="form-control" name="width"
+    			       id="inputWidth" placeholder="Width sm" required>
+    			<div class="valid-feedback">
+        			Looks good!
+      			</div>
+      			<div class="invalid-feedback">
+        			Please enter a width.
+      			</div>  			
+  			</div>
+			<div class="form-group">
+    			<label for="inputHeight">Height</label>
+    			<input type="number" class="form-control" name="height"
+    			       id="inputHeight" placeholder="Height sm" required>
+    			<div class="valid-feedback">
+        			Looks good!
+      			</div>
+      			<div class="invalid-feedback">
+        			Please enter a height.
+      			</div>  			
+  			</div>
+  			
+  			<br>
+  			<h5>Cost of shipping</h5>
+  				${(param.weight + (param.length + param.width + param.length) * 0.01)}$
+  			<br>
+			<button type="submit" class="btn btn-lg btn-success btn-block">
+				    Calculate</button>
+			<script>
+					(function() {
+					  'use strict';
+					  window.addEventListener('load', function() {
+					    var forms = 
+						    document.getElementsByClassName('needs-validation');
+					    var validation = 
+						    Array.prototype.filter.call(forms, function(form) {
+					      form.addEventListener('submit', function(event) {
+					        if (form.checkValidity() === false) {
+					          event.preventDefault();
+					          event.stopPropagation();
+					        }
+					        form.classList.add('was-validated');
+					      }, false);
+					    });
+					  }, false);
+					})();
+			</script>		    
+		</form>
+		<br><br><br><br>
+		</div>
+		<div class="col"></div>
+	</div>
+</div>
