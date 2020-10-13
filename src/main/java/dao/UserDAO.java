@@ -24,21 +24,21 @@ public class UserDAO implements AbstractDAO<User> {
 	@Override
 	public List<User> getAll() {
 		List<User> users = new ArrayList<>();
-		ResultSet rs = null;
+		ResultSet rs;
 		try (Connection connection = getConnection();
 			 Statement stmt = connection.createStatement()) {
 			
-			rs = stmt.executeQuery(SQLConstants.GET_ALL_USERS);
-			while (rs.next()) {
-				User user = new User();
-				user.setId(rs.getLong("user_id"));
-				user.setName(rs.getString("name"));
-				user.setLastName(rs.getString("last_name"));
-				user.setLogin(rs.getString("login"));
-				user.setPassword(rs.getString("password"));
-				user.setRole(rs.getString("role"));
-				user.setLocal(rs.getString("local"));
-			}
+				rs = stmt.executeQuery(SQLConstants.GET_ALL_USERS);
+				while (rs.next()) {
+					User user = new User();
+					user.setId(rs.getLong("user_id"));
+					user.setName(rs.getString("name"));
+					user.setLastName(rs.getString("last_name"));
+					user.setLogin(rs.getString("login"));
+					user.setPassword(rs.getString("password"));
+					user.setRole(rs.getString("role"));
+					user.setLocal(rs.getString("local"));
+				}
 			
 		} catch (SQLException ex) {
 			LOGGER.error("SQLException");
@@ -75,7 +75,7 @@ public class UserDAO implements AbstractDAO<User> {
 				user = extractUser(rs);
 			}
 		} catch (SQLException ex) {
-			LOGGER.error("SQLException");
+			LOGGER.error("SQLException", ex);
 			dbManager.rollback(connection);
 		} finally {
 			dbManager.close(connection, pstmt, rs);

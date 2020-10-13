@@ -1,13 +1,16 @@
 package entities;
 
+import java.util.Objects;
+
 public class Direction extends Entity {
 
 	private static final long serialVersionUID = -7063184170999721077L;
 	private Long id;
 	private String direction;
+	private Long distance;
 	
 	public Direction() {};
-	
+
 	/**
 	 * @return the id
 	 */
@@ -21,7 +24,7 @@ public class Direction extends Entity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	/**
 	 * @return the direction
 	 */
@@ -35,7 +38,15 @@ public class Direction extends Entity {
 	public void setDirection(String direction) {
 		this.direction = direction;
 	}
-	
+
+	public Long getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Long distance) {
+		this.distance = distance;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -46,35 +57,22 @@ public class Direction extends Entity {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Direction)) {
-			return false;
-		}
-		Direction other = (Direction) obj;
-		if (direction == null) {
-			if (other.direction != null) {
-				return false;
-			}
-		} else if (!direction.equals(other.direction)) {
-			return false;
-		}
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
-		return true;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Direction)) return false;
+		Direction direction1 = (Direction) o;
+		return Objects.equals(id, direction1.id) &&
+				Objects.equals(direction, direction1.direction) &&
+				Objects.equals(distance, direction1.distance);
 	}
 
 	@Override
 	public String toString() {
-		return "Direction [id=" + id + 
-			   ", direction=" + direction + "]";
+		return "Direction{" +
+				"id=" + id +
+				", direction='" + direction + '\'' +
+				", distance=" + distance +
+				'}';
 	}
-	
+
 }

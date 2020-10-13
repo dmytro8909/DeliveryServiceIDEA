@@ -58,7 +58,7 @@ public class Controller extends HttpServlet {
 		try {
 			page = command.execute(request);
 		} catch (Exception e) {
-			LOGGER.error("Page exception");
+			LOGGER.error("Page exception", e);
 		}
 		
 		if (page != null) {

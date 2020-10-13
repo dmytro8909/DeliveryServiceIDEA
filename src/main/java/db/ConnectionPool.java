@@ -17,15 +17,16 @@ public class ConnectionPool {
 	private static ConnectionPool instance = null;
 	private static DataSource dataSource;
 
-	private ConnectionPool() {
+	private ConnectionPool() {}
+
+	static {
 		Context initCtx;
-		Context envCtx = null;
+		Context envCtx;
 		try {
 			initCtx = new InitialContext();
 			envCtx = (Context) initCtx.lookup("java:comp/env");
 		// delivery_service - the name of data source
-		dataSource =
-				(DataSource)envCtx.lookup("jdbc/DeliveryService");
+		dataSource = (DataSource)envCtx.lookup("jdbc/DeliveryService");
 		} catch (NamingException e) {
 			LOGGER.error("NamingException", e);
 		}

@@ -19,10 +19,10 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 	private static final Logger LOGGER = LogManager.getLogger(DirectionDAO.class);
 
 	public DirectionDAO() {}
-	
+
 	@Override
 	public List<Direction> getAll() {
-		List<Direction> directions = new ArrayList<>();
+	List<Direction> directions = new ArrayList<>();
 		ResultSet rs;
 		try (Connection connection = getConnection();
 			 Statement stmt = connection.createStatement()) {
@@ -32,6 +32,7 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 					Direction direction = new Direction();
 					direction.setId(rs.getLong("direction_id"));
 					direction.setDirection(rs.getString("direction"));
+					direction.setDistance(rs.getLong("distance"));
 					directions.add(direction);
 				}
 			} catch (SQLException ex) {
