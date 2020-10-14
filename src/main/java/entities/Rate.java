@@ -1,30 +1,64 @@
 package entities;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Rate extends Entity {
 
 	private static final long serialVersionUID = -2101974061154141532L;
 
-	BigDecimal rate;
+	private Long id;
+	private String name;
+	private BigDecimal rate;
 
-	/**
-	 * @return the rate
-	 */
+	public Rate() {}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public BigDecimal getRate() {
 		return rate;
 	}
 
-	/**
-	 * @param rate the rate to set
-	 */
 	public void setRate(BigDecimal rate) {
 		this.rate = rate;
 	}
 
 	@Override
-	public String toString() {
-		return "Rate [rate=" + rate + "]";
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Rate)) return false;
+		Rate rate1 = (Rate) o;
+		return Objects.equals(id, rate1.id) &&
+				Objects.equals(name, rate1.name) &&
+				Objects.equals(rate, rate1.rate);
 	}
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, rate);
+	}
+
+	@Override
+	public String toString() {
+		return "Rate{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", rate=" + rate +
+				'}';
+	}
 }

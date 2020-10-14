@@ -1,14 +1,6 @@
 package commands.client;
 
-import commands.ActionCommand;
-import commands.CalculateShippingCostCommand;
-import commands.LoginCommand;
-import commands.LogoutCommand;
-import commands.NotRegisterCommand;
-import commands.RegisterCommand;
-import commands.ToIndexCommand;
-import commands.ToLoginFormCommand;
-import commands.ToRegisterFormCommand;
+import commands.*;
 
 public enum CommandEnum {
 	TOINDEX {
@@ -49,6 +41,11 @@ public enum CommandEnum {
 	CALCULATESHIPPINGCOST {
 			{
 				this.command = new CalculateShippingCostCommand();
+			}
+	},
+	NEWORDER {
+			{
+				this.command = new NewOrderCommand();
 			}
 	};
 		ActionCommand command;

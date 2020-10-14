@@ -1,6 +1,4 @@
 
-H
-sql/delivery_service.sql,6/f/6f26a78a5c2e1b587edae27d8c9bcfdb39ff5384
 O
 src/main/java/db/DBManager.java,7/9/79a520fd0ad03d6b422ba9c8b83aa0250d4d5a95
 R
@@ -112,3 +110,7 @@ I
 src/main/webapp/index.jsp,8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded
 S
 #src/main/java/dao/DirectionDAO.java,5/1/517e9e6b39c972416ac66be6cf95154ec66d7529
+T
+$.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
+L
+.idea/codeStyles/Project.xml,6/e/6ecd6000a7b6f4a2884412ff19f74193ed089648

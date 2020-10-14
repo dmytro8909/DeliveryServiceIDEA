@@ -2,69 +2,123 @@
 	<div class="row">
 		<div class="col"></div>
 		<div class="col">
+		<h5>Our rates</h5>
+		<table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Weight (max 5 ton)/ Volume</th>
+                    <th scope="col">Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Up to 2 ton and up to 3.375 m3</td>
+                    <td>1$/km<c:set var="upTo2Ton" value="1"/></td>
+                </tr>
+                <tr>
+                    <td>Over 2 ton and over 3.375 m3</td>
+                    <td>1.5$/km<c:set var="over2Ton" value="1.5"/></td>
+                </tr>
+                <tr>
+                    <td>Otherwise</td>
+                    <td>2$/km<c:set var="otherwise" value="2"/></td>
+                </tr>
+            </tbody>
+		</table>
 		<h2>Calculate shipping cost</h2>
 		<form name="calculateShippingCostForm" method="GET" 
 		      action="/DeliveryService/index.jsp" 
 		      class="needs-validation" novalidate>
+		      <%--
 			<input type="hidden" name="command" value="calculateShippingCost" />
+		      --%>
 			<div class="form-group">
     			<label for="selectDirection">Select direction</label>
-			    <select class="form-control" id="selectDirection">
+			    <select class="form-control" id="selectDirection" name="direction">
 			    <c:forEach items="${directionList}" var="direction">
-			      <option value="${direction.id}">${direction.direction}</option>
+			        <option value="${direction.distance}">${direction.direction}
+			                (distance: ${direction.distance})</option>
 			    </c:forEach>
 			    </select>
+			    <%--
+			    <c:set var="distance" value="${direction}"/>
+			    --%>
   			</div>
   			<h2>Enter package specifications</h2>
 			<div class="form-group">
     			<label for="inputWeight">Weight</label>
     			<input type="number" class="form-control" name="weight" 
-    			       id="inputWeight" placeholder="Weight kg" required>
+    			       id="inputWeight" placeholder="Weight t (max 5t)"
+    			       min="0.001" max="5" step="0.001" required>
     			<div class="valid-feedback">
         			Looks good!
       			</div>
       			<div class="invalid-feedback">
-        			Please enter a weight.
+        			Please enter a correct weight.
       			</div>
   			</div>
 			<div class="form-group">
     			<label for="inputLength">Length</label>
     			<input type="number" class="form-control" name="length"
-    			       id="inputLength" placeholder="Length sm" required>
+    			       id="inputLength" placeholder="Length m (max 5m)"
+    			       min="0.1" max="5" step="0.1" required>
 				<div class="valid-feedback">
         			Looks good!
       			</div>
       			<div class="invalid-feedback">
-        			Please enter a length.
+        			Please enter a correct length.
       			</div>
   			</div>
 			<div class="form-group">
     			<label for="inputWidth">Width</label>
     			<input type="number" class="form-control" name="width"
-    			       id="inputWidth" placeholder="Width sm" required>
+    			       id="inputWidth" placeholder="Width m (max 2.5m)"
+    			       min="0.1" max="2.5" step="0.1" required>
     			<div class="valid-feedback">
         			Looks good!
       			</div>
       			<div class="invalid-feedback">
-        			Please enter a width.
+        			Please enter a correct width.
       			</div>  			
   			</div>
 			<div class="form-group">
     			<label for="inputHeight">Height</label>
     			<input type="number" class="form-control" name="height"
-    			       id="inputHeight" placeholder="Height sm" required>
+    			       id="inputHeight" placeholder="Height m (max 2.5m)"
+    			       min="0.1" max="2.5" step="0.1" required>
     			<div class="valid-feedback">
         			Looks good!
       			</div>
       			<div class="invalid-feedback">
-        			Please enter a height.
+        			Please enter a correct height.
       			</div>  			
   			</div>
   			
-  			<br>
+  			<br/>
+  			<br/>
   			<h5>Cost of shipping</h5>
-  				${(param.weight + (param.length + param.width + param.length) * 0.01)}$
-  			<br>
+
+  			    <c:choose>
+  			        <c:when test="${(param.weight <= 2) && ((param.length * param.width * param.height) <= 3.375)}">
+                        ${upTo2Ton * param.direction}$
+  			        </c:when>
+  			        <c:when test="${(param.weight > 2) && ((param.length * param.width * param.height) > 3.375)}">
+                        ${over2Ton * param.direction}$
+  			        </c:when>
+  			        <c:otherwise>
+  			            ${otherwise * param.direction}$
+  			        </c:otherwise>
+  			    </c:choose>
+
+                <%--
+  			    <c:if test="${(param.weight <= 2) && ((param.length * param.width * param.height) <= 3.375)}">
+  				    ${upTo2Ton * param.direction}$
+  			    </c:if>
+  			    <c:if test="${(param.weight > 2) && ((param.length * param.width * param.height) > 3.375)}">
+  				    ${over2Ton * param.direction}$
+  			    </c:if>
+                --%>
+  			    <br/>
 			<button type="submit" class="btn btn-lg btn-success btn-block">
 				    Calculate</button>
 			<script>

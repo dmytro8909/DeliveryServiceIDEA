@@ -39,7 +39,7 @@
 							${nullPage}
 						<br/>
 						    <button type="submit" 
-						            class="btn btn-lg btn-success btn-block">
+						            class="btn btn-lg btn-dark btn-block">
 						            Log in</button>
 					</form>
 					<script>

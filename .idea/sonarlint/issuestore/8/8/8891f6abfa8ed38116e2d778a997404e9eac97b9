@@ -1,11 +1,11 @@
 
-1
-java:S1700"Rename field "direction"(„Éôáøÿÿÿÿ
-š
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÜÕóôÿÿÿÿÿ
-5
-java:S1116"Remove this empty statement.(ÜÕóôÿÿÿÿÿ
-S
-java:S1161":Add the "@Override" annotation above this method signature(§ß»éıÿÿÿÿ
-N
-java:S1161":Add the "@Override" annotation above this method signature(ˆÃ»·
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÜÕóôÿÿÿÿÿ
+P
+java:S1161":Add the "@Override" annotation above this method signature(ˆÃ»·
+3
+java:S1700	"Rename field "direction"(„Éôáøÿÿÿÿ
+U
+java:S1161":Add the "@Override" annotation above this method signature(§ß»éıÿÿÿÿ
+7
+java:S1116"Remove this empty statement.(ÜÕóôÿÿÿÿÿ

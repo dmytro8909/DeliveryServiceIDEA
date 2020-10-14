@@ -10,6 +10,9 @@ public class SQLConstants {
 	public static final String GET_ALL_USERS =
 			"SELECT * FROM `users`";
 	public static final String GET_ALL_DIRECTIONS = "SELECT * FROM `directions`";
-	public static final String INSERT_USER = 
+	public static final String GET_ALL_RATES = "SELECT * FROM `directions`";
+	public static final String GET_ALL_ORDERS = "SELECT * FROM `orders`";
+	public static final String GET_RATE_BY_NAME = "SELECT * FROM `rates` WHERE `name`=?";
+	public static final String INSERT_USER =
 			"INSERT INTO `users` (`name`,`last_name`,`login`,`password`) VALUES (?,?,?,?)";
 }

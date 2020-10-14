@@ -1,6 +1,6 @@
 <%@ page language="java" %>
 	<div class="container">
-		<nav class="navbar fixed-bottom navbar-light bg-light">
+		<nav class="navbar fixed-bottom navbar-dark bg-dark">
 			<h6>Copyright @ 2020 EPAM-Systems</h6>	
 		</nav>
 	</div>

@@ -42,13 +42,13 @@
 						<form action="controller" method="POST">
 							<input type="hidden" name="command" 
 							       value="toLoginForm" />
-							<input type="submit" class="btn btn-success" 
+							<input type="submit" class="btn btn-light"
 							       value="Login">					
 						</form>
 						<form action="controller" method="POST">
 							<input type="hidden" name="command" 
 							       value="toRegisterForm" />
-							<input type="submit" class="btn btn-success" 
+							<input type="submit" class="btn btn-light"
 							       value="Register">					
 						</form>
 					</div>

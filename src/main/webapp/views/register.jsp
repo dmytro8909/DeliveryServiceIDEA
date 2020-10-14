@@ -63,7 +63,7 @@
 							${nullPage}
 						<br/>
 						<button type="submit" 
-							    class="btn btn-lg btn-success btn-block">
+							    class="btn btn-lg btn-dark btn-block">
 							    Registration</button>		
 					</form>
 					<script>

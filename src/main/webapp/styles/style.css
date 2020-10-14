@@ -1,0 +1,11 @@
+body {
+ background-image: url("images/delivery_service_background.jpg");
+ background-color: #ffffff;
+ color: #ffffff;
+}
+table.table {
+    color: #ffffff;
+}
+a.nav-link {
+    color: #ffffff;
+}
