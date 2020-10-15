@@ -1,13 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import= "dao.DirectionDAO" %>
-<%@ page import= "dao.RatesDAO" %>
-<% DirectionDAO dirDAO = new DirectionDAO(); %>
-<% request.setAttribute("directionList",dirDAO.getAll()); %>
-<% RatesDAO rateDAO = new RatesDAO(); %>
-<% request.setAttribute("rateUpTo2",rateDAO.getRateByName("up_to_2")); %>
-<% request.setAttribute("over2",rateDAO.getRateByName("over_2")); %>
-<% request.setAttribute("otherwise",rateDAO.getRateByName("otherwise")); %>
+<%@include file="/views/jspf/importDAO.jspf"%>
 <html>
 	<%@ include file="/views/jspf/head.jspf" %>
 	<body class="text-center">

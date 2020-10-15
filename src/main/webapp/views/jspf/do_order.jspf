@@ -2,9 +2,11 @@
 	<div class="row">
 	    <div class="col"></div>
 	    <div class="col">
+            <%@include file="/views/jspf/rates_table.jspf"%>
             <form name="createOrderForm" method="POST"
             	  action="controller" class="needs-validation" novalidate>
             	<input type="hidden" name="command" value="createOrder" />
+            	<input type="hidden" name="userId" value="${sessionScope.userId}" />
             	<h2>Create New Order</h2>
             	<div class="form-group">
                 	<label for="describePackage">Description</label>
@@ -15,7 +17,8 @@
             	<div class="form-group">
                 	<label for="address">Address</label>
             	    <input class="form-control" type="text" id="address"
-            	           name="address" placeholder="Write your address"
+            	           name="address"
+            	           placeholder="Write your address(street and building's number)"
             	           required>
             	    <div class="valid-feedback">
                     	Looks good!

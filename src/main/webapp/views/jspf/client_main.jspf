@@ -6,8 +6,9 @@
 			    <thead>
 			        <tr>
 			            <th scope="col">ID</th>
-			            <th scope="col">Date</th>
+			            <th scope="col">Shipping Date</th>
 			            <th scope="col">Description</th>
+			            <th scope="col">Address</th>
 			            <th scope="col">Cost</th>
 			            <th scope="col">Review</th>
 			        </tr>
@@ -18,6 +19,7 @@
 			                <td>${orders.id}</td>
                             <td>${orders.shippingDate}</td>
                             <td>${orders.description}</td>
+                            <td>${orders.address}</td>
                             <td>${orders.cost}</td>
                             <td><a class="btn btn-dark"
                                    href="controller?command=showOrder"

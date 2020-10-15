@@ -2,29 +2,7 @@
 	<div class="row">
 		<div class="col"></div>
 		<div class="col">
-		<h5>Our rates</h5>
-		<table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Weight (max 5 ton)/ Volume</th>
-                    <th scope="col">Rate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Up to 2 ton and up to 3.375 m3</td>
-                    <td>1$/km<c:set var="upTo2Ton" value="1"/></td>
-                </tr>
-                <tr>
-                    <td>Over 2 ton and over 3.375 m3</td>
-                    <td>1.5$/km<c:set var="over2Ton" value="1.5"/></td>
-                </tr>
-                <tr>
-                    <td>Otherwise</td>
-                    <td>2$/km<c:set var="otherwise" value="2"/></td>
-                </tr>
-            </tbody>
-		</table>
+		<%@include file="/views/jspf/rates_table.jspf"%>
 		<h2>Calculate shipping cost</h2>
 		<form name="calculateShippingCostForm" method="GET" 
 		      action="/DeliveryService/index.jsp" 
@@ -40,9 +18,6 @@
 			                (distance: ${direction.distance})</option>
 			    </c:forEach>
 			    </select>
-			    <%--
-			    <c:set var="distance" value="${direction}"/>
-			    --%>
   			</div>
   			<h2>Enter package specifications</h2>
 			<div class="form-group">
@@ -97,7 +72,6 @@
   			<br/>
   			<br/>
   			<h5>Cost of shipping</h5>
-
   			    <c:choose>
   			        <c:when test="${(param.weight <= 2) && ((param.length * param.width * param.height) <= 3.375)}">
                         ${upTo2Ton * param.direction}$
@@ -109,17 +83,8 @@
   			            ${otherwise * param.direction}$
   			        </c:otherwise>
   			    </c:choose>
-
-                <%--
-  			    <c:if test="${(param.weight <= 2) && ((param.length * param.width * param.height) <= 3.375)}">
-  				    ${upTo2Ton * param.direction}$
-  			    </c:if>
-  			    <c:if test="${(param.weight > 2) && ((param.length * param.width * param.height) > 3.375)}">
-  				    ${over2Ton * param.direction}$
-  			    </c:if>
-                --%>
   			    <br/>
-			<button type="submit" class="btn btn-lg btn-success btn-block">
+			<button type="submit" class="btn btn-lg btn-dark btn-block">
 				    Calculate</button>
 			<script>
 					(function() {

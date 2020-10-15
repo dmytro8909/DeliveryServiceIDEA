@@ -2,32 +2,24 @@ package exception;
 
 public class Messages {
 	private Messages() {}
-	
-	public static final String ERR_CANNOT_OBTAIN_USER_ORDER_BEANS = "Cannot obtain user order beans";
 
-	public static final String ERR_CANNOT_OBTAIN_CONNECTION = "Cannot obtain a connection from the pool";
+	public static final String ERR_CANNOT_GET_USER = "Cannot get a user from database";
 
-	public static final String ERR_CANNOT_OBTAIN_CATEGORIES = "Cannot obtain categories";
+	public static final String ERR_CANNOT_GET_LIST_OF_USERS = "Cannot get a list of users from database";
 
-	public static final String ERR_CANNOT_OBTAIN_MENU_ITEMS = "Cannot obtain menu items";
+	public static final String ERR_CANNOT_INSERT_USER = "Cannot insert a user to the database";
 
-	public static final String ERR_CANNOT_OBTAIN_MENU_ITEMS_BY_ORDER = "Cannot obtain menu items by order";
+	public static final String ERR_CANNOT_INSERT_PACKAGE = "Cannot insert a package to the database";
 
-	public static final String ERR_CANNOT_OBTAIN_MENU_ITEMS_BY_IDENTIFIERS = "Cannot obtain menu items by its identifiers";
+	public static final String ERR_CANNOT_GET_PACKAGE = "Cannot get a package from the database";
 
-	public static final String ERR_CANNOT_OBTAIN_ORDERS = "Cannot obtain orders";
+	public static final String ERR_CANNOT_GET_RATE = "Cannot get a rate from the database";
 
-	public static final String ERR_CANNOT_OBTAIN_ORDERS_BY_STATUS_ID = "Cannot obtain orders by status id";
+	public static final String ERR_CANNOT_GET_LIST_OF_RATES = "Cannot get a list of rates from the database";
 
-	public static final String ERR_CANNOT_OBTAIN_ORDERS_BY_IDENTIFIERS = "Cannot obtain orders by its identifiers";
+	public static final String ERR_CANNOT_GET_LIST_OF_ORDERS = "Cannot get a list of orders from database";
 
-	public static final String ERR_CANNOT_OBTAIN_ORDERS_BY_USER_AND_STATUS_ID = "Cannot obtain orders by user and status id";
-
-	public static final String ERR_CANNOT_OBTAIN_USER_BY_ID = "Cannot obtain a user by its id";
-
-	public static final String ERR_CANNOT_OBTAIN_USER_BY_LOGIN = "Cannot obtain a user by its login";
-
-	public static final String ERR_CANNOT_UPDATE_USER = "Cannot update a user";
+	public static final String ERR_CANNOT_INSERT_ORDER = "Cannot insert an order to the database";
 
 	public static final String ERR_CANNOT_CLOSE_CONNECTION = "Cannot close a connection";
 
@@ -37,5 +29,4 @@ public class Messages {
 
 	public static final String ERR_CANNOT_CLOSE_PREPARED_STATEMENT = "Cannot close a prepared statement";
 
-	public static final String ERR_CANNOT_OBTAIN_DATA_SOURCE = "Cannot obtain the data source";
 }

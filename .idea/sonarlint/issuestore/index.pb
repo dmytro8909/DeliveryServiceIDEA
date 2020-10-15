@@ -114,3 +114,35 @@ T
 $.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
 L
 .idea/codeStyles/Project.xml,6/e/6ecd6000a7b6f4a2884412ff19f74193ed089648
+[
++src/main/webapp/views/jspf/client_main.jspf,2/b/2b7ee0611c8a9df9874295026ce8dff64d2ccba3
+P
+ target/classes/config.properties,9/4/943dd6183e90463c0b9fc7aba5c9bca86ef2aea4
+[
++target/DeliveryService/views/jspf/head.jspf,f/a/fae79e2af79140a5f0fd0ccf500574553ae8481e
+]
+-target/DeliveryService/views/jspf/header.jspf,c/f/cf763c2c5794bbdab4e4af487a941a1ddc394a5d
+h
+8target/DeliveryService/views/jspf/main_not_register.jspf,e/3/e32bad1131495bb751a600e719ff9113b168764e
+\
+,src/main/webapp/views/jspf/manager_main.jspf,f/7/f768515cb6b6ba39b28fd7f1e986ef8ba651b378
+T
+$target/maven-archiver/pom.properties,5/a/5acbe6c306dee4498a010b1ca2096853e29e16a4
+O
+src/main/java/dao/RatesDAO.java,2/d/2dde805bb45166f357309b94df836a1f31f0b431
+P
+ src/main/webapp/styles/style.css,a/9/a9e4b7f281e438e03397aa291d91b8f626f9b65d
+^
+.src/main/java/commands/CreateOrderCommand.java,9/3/93458f0dfe3082ca83f5a6b2411e1e9aa0aa4edf
+O
+src/main/java/dao/OrderDAO.java,1/d/1deb001c3dac2a5a6f69bccce5dd416ad1fa7dfe
+[
++src/main/java/commands/NewOrderCommand.java,f/3/f379c0207e02e68556195d2a61a6960b5a931059
+X
+(src/main/webapp/views/jspf/do_order.jspf,4/9/49e56996bed9a1b86af7ab1da2f2964e0ae2b5c3
+[
++src/main/webapp/views/jspf/rates_table.jspf,4/b/4bbe5e9a567784d5b9d0dced704fd485085796fe
+S
+#src/main/webapp/views/new_order.jsp,4/a/4a662e0ac0672078909b46c058e452e537ade82a
+Y
+)src/main/webapp/views/jspf/importDAO.jspf,5/1/515649fcf3b75f839b1f493e59df50d94525e5af

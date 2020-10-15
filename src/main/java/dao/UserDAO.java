@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import static exception.Messages.*;
 import static db.ConnectionPool.getConnection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +24,7 @@ public class UserDAO implements AbstractDAO<User> {
 	@Override
 	public List<User> getAll() {
 		List<User> users = new ArrayList<>();
-		ResultSet rs;
+		ResultSet rs = null;
 		try (Connection connection = getConnection();
 			 Statement stmt = connection.createStatement()) {
 			
@@ -41,7 +41,9 @@ public class UserDAO implements AbstractDAO<User> {
 				}
 			
 		} catch (SQLException ex) {
-			LOGGER.error("SQLException");
+			LOGGER.error(ERR_CANNOT_GET_LIST_OF_USERS);
+		} finally {
+			dbManager.close(rs);
 		}
 		return users;
 	}
@@ -75,7 +77,7 @@ public class UserDAO implements AbstractDAO<User> {
 				user = extractUser(rs);
 			}
 		} catch (SQLException ex) {
-			LOGGER.error("SQLException", ex);
+			LOGGER.error(ERR_CANNOT_GET_USER);
 			dbManager.rollback(connection);
 		} finally {
 			dbManager.close(connection, pstmt, rs);
@@ -98,19 +100,21 @@ public class UserDAO implements AbstractDAO<User> {
 			               String lastName, 
 			               String login,
 			               String password) throws SQLException {
+
+		int i = 0;
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		try {
 			connection = getConnection();
 			pstmt = connection.prepareStatement(SQLConstants.INSERT_USER);
-			pstmt.setString(1, name);
-			pstmt.setString(2, lastName);
-			pstmt.setString(3, login);
-			pstmt.setString(4, password);
+			pstmt.setString(i++, name);
+			pstmt.setString(i++, lastName);
+			pstmt.setString(i++, login);
+			pstmt.setString(i++, password);
 			pstmt.executeUpdate();
 			connection.commit();
 		} catch (SQLException e) {
-			LOGGER.error("SQLException");
+			LOGGER.error(ERR_CANNOT_INSERT_USER);
 			dbManager.rollback(connection);
 		} finally {
 			dbManager.close(connection);

@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Objects;
+
 public class Package extends Entity {
 	
 	private static final long serialVersionUID = -3549745383098023227L;
@@ -8,62 +10,62 @@ public class Package extends Entity {
 	Double length;
 	Double width;
 	Double height;
-	/**
-	 * @return the weight
-	 */
+
 	public Double getWeight() {
 		return weight;
 	}
-	/**
-	 * @param weight the weight to set
-	 */
+
 	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
-	/**
-	 * @return the length
-	 */
+
 	public Double getLength() {
 		return length;
 	}
-	/**
-	 * @param length the length to set
-	 */
+
 	public void setLength(Double length) {
 		this.length = length;
 	}
-	/**
-	 * @return the width
-	 */
+
 	public Double getWidth() {
 		return width;
 	}
-	/**
-	 * @param width the width to set
-	 */
+
 	public void setWidth(Double width) {
 		this.width = width;
 	}
-	/**
-	 * @return the height
-	 */
+
 	public Double getHeight() {
 		return height;
 	}
-	/**
-	 * @param height the height to set
-	 */
+
 	public void setHeight(Double height) {
 		this.height = height;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Package)) return false;
+		Package aPackage = (Package) o;
+		return Objects.equals(weight, aPackage.weight) &&
+				Objects.equals(length, aPackage.length) &&
+				Objects.equals(width, aPackage.width) &&
+				Objects.equals(height, aPackage.height);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(weight, length, width, height);
+	}
+
 	@Override
 	public String toString() {
-		return "Package [weight=" + weight + 
-			   ", length=" + length + 
-			   ", width=" + width + 
-			   ", height=" + height + "]";
+		return "Package{" +
+				"weight=" + weight +
+				", length=" + length +
+				", width=" + width +
+				", height=" + height +
+				'}';
 	}
-	
-	
-	
 }

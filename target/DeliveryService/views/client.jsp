@@ -5,15 +5,7 @@
 	<%@ include file="/views/jspf/head.jspf" %>
 	<body class="text-center">
 		<%@ include file="/views/jspf/header.jspf"%>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col"></div>
-				<div class="col">
-					<h3>${user.name}, hello!</h3>
-				</div>
-				<div class="col"></div>
-			</div>
-		</div>
+		<%@ include file="/views/jspf/client_main.jspf"%>
 		<%@ include file="/views/jspf/footer.jspf"%>
 	</body>
 </html>

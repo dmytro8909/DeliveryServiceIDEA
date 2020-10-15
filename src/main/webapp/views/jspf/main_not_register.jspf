@@ -2,29 +2,7 @@
 	<div class="row">
 		<div class="col"></div>
 		<div class="col">
-		<h5>Our rates</h5>
-		<table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Weight (max 5 ton)/ Volume</th>
-                    <th scope="col">Rate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Up to 2 ton and up to 3.375 m3</td>
-                    <td>${rateUpTo2}$/km<c:set var="upTo2Ton" value="${rateUpTo2}"/></td>
-                </tr>
-                <tr>
-                    <td>Over 2 ton and over 3.375 m3</td>
-                    <td>${over2}$/km<c:set var="over2Ton" value="${over2}"/></td>
-                </tr>
-                <tr>
-                    <td>Otherwise</td>
-                    <td>${otherwise}$/km<c:set var="otherwise" value="${otherwise}"/></td>
-                </tr>
-            </tbody>
-		</table>
+		<%@include file="/views/jspf/rates_table.jspf"%>
 		<h2>Calculate shipping cost</h2>
 		<form name="calculateShippingCostForm" method="GET" 
 		      action="/DeliveryService/index.jsp" 

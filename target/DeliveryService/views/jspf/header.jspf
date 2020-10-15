@@ -13,15 +13,17 @@
 						
 						<c:when test="${userRole == 'user'}">
 							<a class="nav-link" 
-							   href="controller?command=listOrders">
-							   Order</a>
+							   href="controller?command=newOrder">
+							   New order</a>
 						</c:when>
 					</c:choose>
 				</c:if>
 			</nav>
 		</div>
 		<div class="col"></div>
-		<div class="col"></div>
+		<div class="col">
+		    <h3>Delivery Service</h3>
+		</div>
 		<div class="col">
 			<c:out value="${user.name} ${user.lastName}"/>
 			<c:if test="${not empty userRole}">
@@ -31,32 +33,15 @@
 		<div class="col">
 			<c:choose>
 				<c:when test="${not empty user}">
-					<a class="btn btn-success" 
+					<a class="btn btn-dark"
 			   		   href="controller?command=logout" 
 			   		   role="button">Logout</a>
 				</c:when>
 				<c:otherwise>
-				<!-- 
-					<div class="btn-group btn-group-sm" role="group" 
-					     aria-label="Basic example">
-						<form action="controller" method="POST">
-							<input type="hidden" name="command" 
-							       value="toLoginForm" />
-							<input type="submit" class="btn btn-light"
-							       value="Login">					
-						</form>
-						<form action="controller" method="POST">
-							<input type="hidden" name="command" 
-							       value="toRegisterForm" />
-							<input type="submit" class="btn btn-light"
-							       value="Register">					
-						</form>
-					</div>
-				 -->
-				 <a class="btn btn-success" 
+				 <a class="btn btn-dark"
 				    href="controller?command=toLoginForm" 
 				    role="button">Login</a>
-				 <a class="btn btn-success" 
+				 <a class="btn btn-dark"
 				    href="controller?command=toRegisterForm" 
 				    role="button">Register</a>
 				</c:otherwise>

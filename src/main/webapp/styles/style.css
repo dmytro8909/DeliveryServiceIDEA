@@ -1,7 +1,9 @@
 body {
- background-image: url("images/delivery_service_background.jpg");
- background-color: #ffffff;
- color: #ffffff;
+    background-image: url("images/delivery_service_background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #ffffff;
+    color: #ffffff;
 }
 table.table {
     color: #ffffff;

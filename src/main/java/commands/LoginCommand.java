@@ -28,6 +28,7 @@ public class LoginCommand implements ActionCommand {
 		String pass = request.getParameter(PARAM_NAME_PASSWORD);
 	
 		User user = userDAO.findUserByLogin(login);
+		Long userId = user.getId();
 		String userRole = user.getRole();
 		
 		if (user == null || !pass.equals(user.getPassword())) {
@@ -39,12 +40,14 @@ public class LoginCommand implements ActionCommand {
 		if (LoginLogic.checkLogin(login, pass) && "manager".equals(user.getRole())) {
 			session.setAttribute("user", user);
 			session.setAttribute("userRole", userRole);
+			session.setAttribute("userId", userId);
 			page = ConfigurationManager.getProperty("path.page.manager");
 		}
-		
-		if (LoginLogic.checkLogin(login, pass) && "user".equals(user.getRole())) { 
+
+		if (LoginLogic.checkLogin(login, pass) && "user".equals(user.getRole())) {
 			session.setAttribute("user", user);
 			session.setAttribute("userRole", userRole);
+			session.setAttribute("userId", userId);
 			page = ConfigurationManager.getProperty("path.page.client");
 		}
 		

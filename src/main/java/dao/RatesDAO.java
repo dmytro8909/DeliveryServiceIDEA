@@ -4,22 +4,24 @@ import db.SQLConstants;
 import entities.Rate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import static exception.Messages.*;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import db.DBManager;
 import static db.ConnectionPool.getConnection;
+
 
 public class RatesDAO implements AbstractDAO<Rate>{
 
+    DBManager dbManager = new DBManager();
     private static final Logger LOGGER = LogManager.getLogger(RatesDAO.class);
 
     @Override
     public List<Rate> getAll() {
         List<Rate> rates = new ArrayList<>();
-        ResultSet rs;
+        ResultSet rs = null;
         try (Connection connection = getConnection();
              Statement stmt = connection.createStatement()) {
             rs = stmt.executeQuery(SQLConstants.GET_ALL_RATES);
@@ -31,7 +33,9 @@ public class RatesDAO implements AbstractDAO<Rate>{
                 rates.add(rate);
             }
         } catch (SQLException ex) {
-            LOGGER.error("SQLException");
+            LOGGER.error(ERR_CANNOT_GET_LIST_OF_RATES);
+        } finally {
+            dbManager.close(rs);
         }
         return rates;
     }
@@ -42,7 +46,7 @@ public class RatesDAO implements AbstractDAO<Rate>{
     }
 
     public BigDecimal getRateByName(String name) {
-        ResultSet rs;
+        ResultSet rs = null;
         Rate rate = new Rate();
         try (Connection connection = getConnection();
              PreparedStatement pstmt =
@@ -55,7 +59,9 @@ public class RatesDAO implements AbstractDAO<Rate>{
                 rate.setRate(rs.getBigDecimal("rate"));
             }
         } catch (SQLException ex) {
-            LOGGER.error("SQLException");
+            LOGGER.error(ERR_CANNOT_GET_RATE);
+        } finally {
+            dbManager.close(rs);
         }
         return rate.getRate();
     }

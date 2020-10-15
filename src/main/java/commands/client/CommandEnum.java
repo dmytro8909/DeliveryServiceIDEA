@@ -47,6 +47,11 @@ public enum CommandEnum {
 			{
 				this.command = new NewOrderCommand();
 			}
+	},
+	CREATEORDER {
+			{
+				this.command = new CreateOrderCommand();
+			}
 	};
 		ActionCommand command;
 		public ActionCommand getCurrentCommand() {
