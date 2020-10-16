@@ -5,23 +5,23 @@ import java.util.Objects;
 public class Direction extends Entity {
 
 	private static final long serialVersionUID = -7063184170999721077L;
-	private Long id;
+	private int id;
 	private String direction;
-	private Long distance;
+	private int distance;
 	
 	public Direction() {};
 
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -39,21 +39,12 @@ public class Direction extends Entity {
 		this.direction = direction;
 	}
 
-	public Long getDistance() {
+	public int getDistance() {
 		return distance;
 	}
 
-	public void setDistance(Long distance) {
+	public void setDistance(int distance) {
 		this.distance = distance;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((direction == null) ? 0 : direction.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
 	}
 
 	@Override
@@ -61,9 +52,14 @@ public class Direction extends Entity {
 		if (this == o) return true;
 		if (!(o instanceof Direction)) return false;
 		Direction direction1 = (Direction) o;
-		return Objects.equals(id, direction1.id) &&
-				Objects.equals(direction, direction1.direction) &&
-				Objects.equals(distance, direction1.distance);
+		return id == direction1.id &&
+				distance == direction1.distance &&
+				Objects.equals(direction, direction1.direction);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, direction, distance);
 	}
 
 	@Override

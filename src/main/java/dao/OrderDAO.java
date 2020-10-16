@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 
 import static db.ConnectionPool.getConnection;
-import static exception.Messages.ERR_CANNOT_INSERT_PACKAGE;
 
 public class OrderDAO implements AbstractDAO<Order>{
 
@@ -30,9 +29,10 @@ public class OrderDAO implements AbstractDAO<Order>{
             rs = stmt.executeQuery(SQLConstants.GET_ALL_ORDERS);
             while (rs.next()) {
                 Order order = new Order();
-                order.setId(rs.getLong("order_id"));
-                order.setDescription(rs.getString("description"));
+                order.setId(rs.getInt("order_id"));
                 order.setShippingDate(rs.getDate("shipping_date"));
+                order.setDescription(rs.getString("description"));
+                order.setAddress(rs.getString("address"));
                 order.setCost(rs.getBigDecimal("cost"));
                 orders.add(order);
             }
@@ -46,27 +46,26 @@ public class OrderDAO implements AbstractDAO<Order>{
 
     public void insertOrder(String description,
                             String address,
-                            Long directionId,
                             Date shippingDate,
                             BigDecimal cost,
-                            Long userId) {
+                            int userId,
+                            int directionId) {
 
         Connection connection = null;
         PreparedStatement pstmt = null;
-        int i = 0;
         try {
             connection = getConnection();
             pstmt = connection.prepareStatement(SQLConstants.INSERT_ORDER);
-            pstmt.setString(i++, description);
-            pstmt.setString(i++, address);
-            pstmt.setLong(i++, directionId);
-            pstmt.setDate(i++, getDBdate(shippingDate));
-            pstmt.setBigDecimal(i++, cost);
-            pstmt.setLong(i++, userId);
+            pstmt.setString(1, description);
+            pstmt.setString(2, address);
+            pstmt.setDate(3, getDBdate(shippingDate));
+            pstmt.setBigDecimal(4, cost);
+            pstmt.setInt(5, userId);
+            pstmt.setInt(6, directionId);
             pstmt.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
-            LOGGER.error(ERR_CANNOT_INSERT_ORDER);
+            LOGGER.error(ERR_CANNOT_INSERT_ORDER, e);
             dbManager.rollback(connection);
         } finally {
             dbManager.close(connection);
@@ -74,13 +73,13 @@ public class OrderDAO implements AbstractDAO<Order>{
         }
     }
 
-    private static java.sql.Date getDBdate( Date shDate) {
+    private static java.sql.Date getDBdate(Date shDate) {
         Date date = new Date();
         return new java.sql.Date(date.getTime());
     }
 
     @Override
-    public Order get(Long id) {
+    public Order get(int id) {
         return null;
     }
 
@@ -93,4 +92,5 @@ public class OrderDAO implements AbstractDAO<Order>{
     public Order delete(Order order) {
         return null;
     }
+
 }

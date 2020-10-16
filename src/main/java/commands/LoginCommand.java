@@ -28,7 +28,7 @@ public class LoginCommand implements ActionCommand {
 		String pass = request.getParameter(PARAM_NAME_PASSWORD);
 	
 		User user = userDAO.findUserByLogin(login);
-		Long userId = user.getId();
+		int userId = user.getId();
 		String userRole = user.getRole();
 		
 		if (user == null || !pass.equals(user.getPassword())) {

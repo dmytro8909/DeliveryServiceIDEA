@@ -27,7 +27,7 @@ public class RatesDAO implements AbstractDAO<Rate>{
             rs = stmt.executeQuery(SQLConstants.GET_ALL_RATES);
             while (rs.next()) {
                 Rate rate = new Rate();
-                rate.setId(rs.getLong("rates_id"));
+                rate.setId(rs.getInt("rates_id"));
                 rate.setName(rs.getString("name"));
                 rate.setRate(rs.getBigDecimal("rate"));
                 rates.add(rate);
@@ -41,7 +41,7 @@ public class RatesDAO implements AbstractDAO<Rate>{
     }
 
     @Override
-    public Rate get(Long id) {
+    public Rate get(int id) {
         return null;
     }
 
@@ -54,7 +54,7 @@ public class RatesDAO implements AbstractDAO<Rate>{
             pstmt.setString(1, name);
             rs = pstmt.executeQuery();
             if (rs.next()) {
-                rate.setId(rs.getLong("rates_id"));
+                rate.setId(rs.getInt("rates_id"));
                 rate.setName(rs.getString("name"));
                 rate.setRate(rs.getBigDecimal("rate"));
             }

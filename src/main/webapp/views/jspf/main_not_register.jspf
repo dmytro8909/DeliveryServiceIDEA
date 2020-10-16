@@ -5,7 +5,7 @@
 		<%@include file="/views/jspf/rates_table.jspf"%>
 		<h2>Calculate shipping cost</h2>
 		<form name="calculateShippingCostForm" method="GET" 
-		      action="/DeliveryService/index.jsp" 
+		      action="/DeliveryService/index.jsp"
 		      class="needs-validation" novalidate>
 		      <%--
 			<input type="hidden" name="command" value="calculateShippingCost" />

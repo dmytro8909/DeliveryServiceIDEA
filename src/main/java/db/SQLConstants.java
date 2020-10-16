@@ -14,6 +14,7 @@ public class SQLConstants {
 	public static final String GET_ALL_ORDERS = "SELECT * FROM `orders`";
 	public static final String GET_RATE_BY_NAME = "SELECT * FROM `rates` WHERE `name`=?";
 	public static final String GET_PACKAGE_BY_ID = "SELECT * FROM `package` WHERE `id`=?";
+	public static final String GET_DISTANCE_BY_ID = "SELECT * FROM `directions` WHERE `direction_id`=?";
 	public static final String INSERT_USER =
 			"INSERT INTO `users` (`name`,`last_name`,`login`,`password`) VALUES (?,?,?,?)";
 	public static final String INSERT_PACKAGE =
@@ -22,7 +23,6 @@ public class SQLConstants {
 					"VALUES (?,?,?,?,?)";
 	public static final String INSERT_ORDER =
 			"INSERT INTO `orders` (`description`, `address`, `shipping_date`, " +
-					"`cost`, `rates_rates_id`, `directions_direction_id`, " +
-					"`package_package_id`, `users_user_id`) " +
-					"VALUES (?,?,?,?,?,?,?,?)";
+					"`cost`, `users_user_id`, `directions_direction_id`) " +
+					"VALUES (?,?,?,?,?,?)";
 }

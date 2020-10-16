@@ -1,10 +1,12 @@
 package entities;
 
+import java.util.Objects;
+
 public class User extends Entity {
 
 	private static final long serialVersionUID = 6176729694708676630L;
 
-	private Long id;
+	private int id;
 	private String name;
 	private String lastName;
 	private String login;
@@ -17,14 +19,14 @@ public class User extends Entity {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -113,78 +115,22 @@ public class User extends Entity {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + ((local == null) ? 0 : local.hashCode());
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof User)) return false;
+		User user = (User) o;
+		return id == user.id &&
+				Objects.equals(name, user.name) &&
+				Objects.equals(lastName, user.lastName) &&
+				Objects.equals(login, user.login) &&
+				Objects.equals(password, user.password) &&
+				Objects.equals(role, user.role) &&
+				Objects.equals(local, user.local);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof User)) {
-			return false;
-		}
-		User other = (User) obj;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
-		if (lastName == null) {
-			if (other.lastName != null) {
-				return false;
-			}
-		} else if (!lastName.equals(other.lastName)) {
-			return false;
-		}
-		if (local == null) {
-			if (other.local != null) {
-				return false;
-			}
-		} else if (!local.equals(other.local)) {
-			return false;
-		}
-		if (login == null) {
-			if (other.login != null) {
-				return false;
-			}
-		} else if (!login.equals(other.login)) {
-			return false;
-		}
-		if (name == null) {
-			if (other.name != null) {
-				return false;
-			}
-		} else if (!name.equals(other.name)) {
-			return false;
-		}
-		if (password == null) {
-			if (other.password != null) {
-				return false;
-			}
-		} else if (!password.equals(other.password)) {
-			return false;
-		}
-		if (role == null) {
-			if (other.role != null) {
-				return false;
-			}
-		} else if (!role.equals(other.role)) {
-			return false;
-		}
-		return true;
+	public int hashCode() {
+		return Objects.hash(id, name, lastName, login, password, role, local);
 	}
 
 	@Override

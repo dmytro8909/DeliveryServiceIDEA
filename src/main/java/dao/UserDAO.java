@@ -31,7 +31,7 @@ public class UserDAO implements AbstractDAO<User> {
 				rs = stmt.executeQuery(SQLConstants.GET_ALL_USERS);
 				while (rs.next()) {
 					User user = new User();
-					user.setId(rs.getLong("user_id"));
+					user.setId(rs.getInt("user_id"));
 					user.setName(rs.getString("name"));
 					user.setLastName(rs.getString("last_name"));
 					user.setLogin(rs.getString("login"));
@@ -49,7 +49,7 @@ public class UserDAO implements AbstractDAO<User> {
 	}
 
 	@Override
-	public User get(Long id) {
+	public User get(int id) {
 		return null;
 	}
 
@@ -87,7 +87,7 @@ public class UserDAO implements AbstractDAO<User> {
 	
 	private User extractUser(ResultSet rs) throws SQLException {
 		User user = new User();
-		user.setId(rs.getLong("user_id"));
+		user.setId(rs.getInt("user_id"));
 		user.setLogin(rs.getString("login"));
 		user.setPassword(rs.getString("password"));
 		user.setName(rs.getString("name"));

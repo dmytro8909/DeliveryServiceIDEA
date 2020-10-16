@@ -1,33 +1,30 @@
 package entities;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Order extends Entity {
 
 	private static final long serialVersionUID = 5774816993390001007L;
 
-	private Long id;
+	private int id;
 	private String description;
 	private Date shippingDate;
+	private String address;
 	private BigDecimal cost;
-	private Long userId;
-	private Long directionId;
-	private Long rateId;
-	private Long packageId;
-	SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-	private Calendar calendar = new GregorianCalendar();
+	private int userId;
+	private int directionId;
+	private Date date;
 
 	public Order() {}
 
 	@Override
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
 	@Override
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -47,6 +44,14 @@ public class Order extends Entity {
 		this.shippingDate = shippingDate;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public BigDecimal getCost() {
 		return cost;
 	}
@@ -55,36 +60,28 @@ public class Order extends Entity {
 		this.cost = cost;
 	}
 
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	public Long getDirectionId() {
+	public int getDirectionId() {
 		return directionId;
 	}
 
-	public void setDirectionId(Long directionId) {
+	public void setDirectionId(int directionId) {
 		this.directionId = directionId;
 	}
 
-	public Long getRateId() {
-		return rateId;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setRateId(Long rateId) {
-		this.rateId = rateId;
-	}
-
-	public Long getPackageId() {
-		return packageId;
-	}
-
-	public void setPackageId(Long packageId) {
-		this.packageId = packageId;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override
@@ -92,20 +89,20 @@ public class Order extends Entity {
 		if (this == o) return true;
 		if (!(o instanceof Order)) return false;
 		Order order = (Order) o;
-		return Objects.equals(id, order.id) &&
+		return id == order.id &&
+				userId == order.userId &&
+				directionId == order.directionId &&
 				Objects.equals(description, order.description) &&
 				Objects.equals(shippingDate, order.shippingDate) &&
+				Objects.equals(address, order.address) &&
 				Objects.equals(cost, order.cost) &&
-				Objects.equals(userId, order.userId) &&
-				Objects.equals(directionId, order.directionId) &&
-				Objects.equals(rateId, order.rateId) &&
-				Objects.equals(packageId, order.packageId);
+				Objects.equals(date, order.date);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, description, shippingDate,
-				            cost, userId, directionId, rateId, packageId);
+		return Objects.hash(id, description, shippingDate, address,
+				            cost, userId, directionId, date);
 	}
 
 	@Override
@@ -114,11 +111,11 @@ public class Order extends Entity {
 				"id=" + id +
 				", description='" + description + '\'' +
 				", shippingDate=" + shippingDate +
+				", address='" + address + '\'' +
 				", cost=" + cost +
 				", userId=" + userId +
 				", directionId=" + directionId +
-				", rateId=" + rateId +
-				", packageId=" + packageId +
+				", date=" + date +
 				'}';
 	}
 }

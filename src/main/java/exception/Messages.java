@@ -15,7 +15,11 @@ public class Messages {
 
 	public static final String ERR_CANNOT_GET_RATE = "Cannot get a rate from the database";
 
+	public static final String ERR_CANNOT_GET_DISTANCE = "Cannot get a distance from the database";
+
 	public static final String ERR_CANNOT_GET_LIST_OF_RATES = "Cannot get a list of rates from the database";
+
+	public static final String ERR_CANNOT_GET_LIST_OF_DIRECTIONS = "Cannot get a list of directions from the database";
 
 	public static final String ERR_CANNOT_GET_LIST_OF_ORDERS = "Cannot get a list of orders from database";
 

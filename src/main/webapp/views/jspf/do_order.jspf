@@ -31,7 +31,7 @@
                 	<label for="selectDirection">Select direction</label>
             		<select class="form-control" id="selectDirection" name="direction">
             		<c:forEach items="${directionList}" var="direction">
-            		    <option value="${direction.distance}">${direction.direction}
+            		    <option value="${direction.id}">${direction.direction}
             		                (distance: ${direction.distance})</option>
             		</c:forEach>
             		</select>

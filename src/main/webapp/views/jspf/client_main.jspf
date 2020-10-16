@@ -23,7 +23,7 @@
                             <td>${orders.cost}</td>
                             <td><a class="btn btn-dark"
                                    href="controller?command=showOrder"
-                                   role="button">Login</a>
+                                   role="button">About order</a>
                             </td>
 			            </tr>
                 	</c:forEach>

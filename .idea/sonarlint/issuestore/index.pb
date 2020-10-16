@@ -146,3 +146,21 @@ S
 #src/main/webapp/views/new_order.jsp,4/a/4a662e0ac0672078909b46c058e452e537ade82a
 Y
 )src/main/webapp/views/jspf/importDAO.jspf,5/1/515649fcf3b75f839b1f493e59df50d94525e5af
+W
+'target/DeliveryService/views/client.jsp,f/4/f42ec465746031b8e883e92a372226ee60c43cc8
+h
+8target/DeliveryService/WEB-INF/classes/config.properties,6/9/69c974c0e69edfaedeb4ebbc2422ccde970acfa6
+‚
+Rtarget/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst,8/a/8ae396f369da14bb5c0973286facff8fb2c70d56
+]
+-target/DeliveryService/views/jspf/footer.jspf,f/e/fe94c3eab8b19f8a6208e14b57196954532dd187
+P
+ target/DeliveryService/index.jsp,9/e/9e9331d87a5fb6de1b1f0f261ebe9df2a12ce19e
+€
+Ptarget/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst,3/d/3da01db98b88a8057c03354880f06dba49d3e795
+V
+&target/DeliveryService/views/login.jsp,c/9/c99179db8791624223a70c3599928e50f9f8455a
+Q
+!src/main/java/dao/PackageDAO.java,7/c/7c1d95c8f092a15d25b5d0588bb4c4534b97fede
+Y
+)target/DeliveryService/views/register.jsp,b/4/b4e0164b839d36cad46a794adb2370fcd9f94e6b

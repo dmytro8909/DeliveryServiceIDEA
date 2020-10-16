@@ -7,18 +7,18 @@ public class Rate extends Entity {
 
 	private static final long serialVersionUID = -2101974061154141532L;
 
-	private Long id;
+	private int id;
 	private String name;
 	private BigDecimal rate;
 
 	public Rate() {}
 
 	@Override
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -43,7 +43,7 @@ public class Rate extends Entity {
 		if (this == o) return true;
 		if (!(o instanceof Rate)) return false;
 		Rate rate1 = (Rate) o;
-		return Objects.equals(id, rate1.id) &&
+		return id == rate1.id &&
 				Objects.equals(name, rate1.name) &&
 				Objects.equals(rate, rate1.rate);
 	}
