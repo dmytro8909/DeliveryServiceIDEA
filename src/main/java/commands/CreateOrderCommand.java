@@ -17,9 +17,6 @@ public class CreateOrderCommand implements ActionCommand {
     private static final Logger LOGGER = LogManager.getLogger(CreateOrderCommand.class);
 
     private static final String PARAM_NAME_USER_ID = "userId";
-//    private static final String PARAM_NAME_PACKAGE_ID = "packageId";
-//    private static final String PARAM_NAME_DIRECTION_ID = "directionId";
-//    private static final String PARAM_NAME_RATE_ID = "rateId";
     private static final String PARAM_NAME_DESCRIPTION = "description";
     private static final String PARAM_NAME_ADDRESS = "address";
     private static final String PARAM_NAME_DIRECTION = "direction";
@@ -38,12 +35,9 @@ public class CreateOrderCommand implements ActionCommand {
         String page = null;
 
         String uId = request.getParameter(PARAM_NAME_USER_ID);
-//        String pId = request.getParameter(PARAM_NAME_PACKAGE_ID);
         String dId = request.getParameter(PARAM_NAME_DIRECTION);
-//        String rId = request.getParameter(PARAM_NAME_RATE_ID);
         String description = request.getParameter(PARAM_NAME_DESCRIPTION);
         String address = request.getParameter(PARAM_NAME_ADDRESS);
-//        String direction = request.getParameter(PARAM_NAME_DIRECTION);
         String weight = request.getParameter(PARAM_NAME_WEIGHT);
         String length = request.getParameter(PARAM_NAME_LENGTH);
         String width = request.getParameter(PARAM_NAME_WIDTH);
@@ -52,11 +46,8 @@ public class CreateOrderCommand implements ActionCommand {
 
         int userId = Integer.parseInt(uId);
         int directionId = Integer.parseInt(dId);
-//        Long rateId = Long.parseLong(rId);
-
         int distance = directionDAO.getDistanceById(directionId);
 
-//        Long packageId = Long.parseLong(pId);
         Double packageWeight = Double.parseDouble(weight);
         Double packageLength = Double.parseDouble(length);
         Double packageWidth = Double.parseDouble(width);

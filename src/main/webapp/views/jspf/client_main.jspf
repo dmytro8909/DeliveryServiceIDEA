@@ -20,10 +20,10 @@
                             <td>${orders.shippingDate}</td>
                             <td>${orders.description}</td>
                             <td>${orders.address}</td>
-                            <td>${orders.cost}</td>
+                            <td>${orders.cost}$</td>
                             <td><a class="btn btn-dark"
-                                   href="controller?command=showOrder"
-                                   role="button">About order</a>
+                                   href="controller?command=payBill"
+                                   role="button">Pay bill</a>
                             </td>
 			            </tr>
                 	</c:forEach>

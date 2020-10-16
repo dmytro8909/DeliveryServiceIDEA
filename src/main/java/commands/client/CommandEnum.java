@@ -52,6 +52,11 @@ public enum CommandEnum {
 			{
 				this.command = new CreateOrderCommand();
 			}
+	},
+	PAYBILL {
+			{
+				this.command = new PayBillCommand();
+			}
 	};
 		ActionCommand command;
 		public ActionCommand getCurrentCommand() {

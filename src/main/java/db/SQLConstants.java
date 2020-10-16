@@ -17,10 +17,6 @@ public class SQLConstants {
 	public static final String GET_DISTANCE_BY_ID = "SELECT * FROM `directions` WHERE `direction_id`=?";
 	public static final String INSERT_USER =
 			"INSERT INTO `users` (`name`,`last_name`,`login`,`password`) VALUES (?,?,?,?)";
-	public static final String INSERT_PACKAGE =
-			"INSERT INTO `package` (`package_id`, `package_weight`, `package_length`, " +
-								   "`package_width`, `package_height`) " +
-					"VALUES (?,?,?,?,?)";
 	public static final String INSERT_ORDER =
 			"INSERT INTO `orders` (`description`, `address`, `shipping_date`, " +
 					"`cost`, `users_user_id`, `directions_direction_id`) " +
