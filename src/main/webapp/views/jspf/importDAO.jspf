@@ -1,11 +1,14 @@
 <%@ page import= "dao.DirectionDAO" %>
 <%@ page import= "dao.RatesDAO" %>
-<%@ page import= "dao.OrderDAO" %>
+<%--@ page import= "dao.OrderDAO" --%>
+<%--@ page import= "entities.Order" --%>
 <% DirectionDAO dirDAO = new DirectionDAO(); %>
 <% request.setAttribute("directionList",dirDAO.getAll()); %>
 <% RatesDAO rateDAO = new RatesDAO(); %>
 <% request.setAttribute("rateUpTo2",rateDAO.getRateByName("up_to_2")); %>
 <% request.setAttribute("over2",rateDAO.getRateByName("over_2")); %>
 <% request.setAttribute("otherwise",rateDAO.getRateByName("otherwise")); %>
-<% OrderDAO orderDAO = new OrderDAO(); %>
-<% request.setAttribute("ordersList", orderDAO.getAll()); %>
+<%-- OrderDAO orderDAO = new OrderDAO(); --%>
+<%-- request.setAttribute("ordersList", orderDAO.getAll()); --%>
+<%-- Order order = new Order(); --%>
+<%--  --%>

@@ -10,11 +10,11 @@
 			            <th scope="col">Description</th>
 			            <th scope="col">Address</th>
 			            <th scope="col">Cost</th>
-			            <th scope="col">Review</th>
+			            <th scope="col">Info</th>
 			        </tr>
 			    </thead>
 			    <tbody>
-			    	<c:forEach items="${ordersList}" var="orders">
+			    	<c:forEach items="${userOrders}" var="orders">
 			            <tr>
 			                <td>${orders.id}</td>
                             <td>${orders.shippingDate}</td>

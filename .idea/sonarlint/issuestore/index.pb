@@ -35,8 +35,6 @@ Q
 !src/main/java/entities/Order.java,b/8/b820904638d4d6963224e74a0cb9cc042879f6f7
 R
 "src/main/java/entities/Entity.java,1/3/13ae85944ada559b3f6c05da1f60d738be7c1ae0
-S
-#src/main/java/entities/Package.java,c/9/c9f515257503c3fa2169771dcf7e412b893d889f
 U
 %src/main/java/entities/Direction.java,8/8/8891f6abfa8ed38116e2d778a997404e9eac97b9
 Z
@@ -160,7 +158,11 @@ P
 Ptarget/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst,3/d/3da01db98b88a8057c03354880f06dba49d3e795
 V
 &target/DeliveryService/views/login.jsp,c/9/c99179db8791624223a70c3599928e50f9f8455a
-Q
-!src/main/java/dao/PackageDAO.java,7/c/7c1d95c8f092a15d25b5d0588bb4c4534b97fede
 Y
 )target/DeliveryService/views/register.jsp,b/4/b4e0164b839d36cad46a794adb2370fcd9f94e6b
+N
+src/main/webapp/views/bill.jsp,5/e/5e43fb8f44e9d89ee92a6fa3e1f0c314fcf956ea
+Y
+)src/main/webapp/views/jspf/bill_main.jspf,6/0/606de13b8f5fd9cc835a396c9e05e1376c6a7c6b
+Z
+*src/main/java/commands/PayBillCommand.java,1/4/14f2c82d5bc1eda3190fbc10452fdd76d549a09e

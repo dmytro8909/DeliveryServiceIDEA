@@ -3,6 +3,7 @@ package commands;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import dao.OrderDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,7 +31,8 @@ public class LoginCommand implements ActionCommand {
 		User user = userDAO.findUserByLogin(login);
 		int userId = user.getId();
 		String userRole = user.getRole();
-		
+		OrderDAO orderDAO = new OrderDAO();
+
 		if (user == null || !pass.equals(user.getPassword())) {
 			session.setAttribute("loginerror",
 			MessageManager.getProperty("message.loginerror"));
@@ -41,6 +43,7 @@ public class LoginCommand implements ActionCommand {
 			session.setAttribute("user", user);
 			session.setAttribute("userRole", userRole);
 			session.setAttribute("userId", userId);
+			session.setAttribute("ordersList", orderDAO.getAll());
 			page = ConfigurationManager.getProperty("path.page.manager");
 		}
 
@@ -48,6 +51,7 @@ public class LoginCommand implements ActionCommand {
 			session.setAttribute("user", user);
 			session.setAttribute("userRole", userRole);
 			session.setAttribute("userId", userId);
+			session.setAttribute("userOrders", orderDAO.getUserOrders(userId));
 			page = ConfigurationManager.getProperty("path.page.client");
 		}
 		

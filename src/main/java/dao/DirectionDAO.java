@@ -60,6 +60,28 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 		return direction.getDistance();
 	}
 
+	public String getDirectionById(int id) {
+		Direction direction = null;
+		ResultSet rs = null;
+		try (Connection connection = getConnection();
+			 PreparedStatement pstmt =
+					 connection.prepareStatement(SQLConstants.GET_DIRECTION_BY_ID)) {
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				direction = new Direction();
+				direction.setId(rs.getInt("direction_id"));
+				direction.setDirection(rs.getString("direction"));
+				direction.setDistance(rs.getInt("distance"));
+			}
+		} catch (SQLException ex) {
+			LOGGER.error(ERR_CANNOT_GET_DISTANCE);
+		} finally {
+			dbManager.close(rs);
+		}
+		return direction.getDirection();
+	}
+
 	@Override
 	public Direction get(int id) {
 		return null;

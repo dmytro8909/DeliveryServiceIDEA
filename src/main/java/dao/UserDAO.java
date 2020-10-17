@@ -50,7 +50,56 @@ public class UserDAO implements AbstractDAO<User> {
 
 	@Override
 	public User get(int id) {
-		return null;
+		User user = null;
+		ResultSet rs = null;
+		try (Connection connection = getConnection();
+			 PreparedStatement pstmt =
+					 connection.prepareStatement(SQLConstants.GET_USER_BY_ID)) {
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("user_id"));
+				user.setName(rs.getString("name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setLogin(rs.getString("login"));
+				user.setPassword(rs.getString("password"));
+				user.setRole(rs.getString("role"));
+				user.setLocal(rs.getString("local"));
+			}
+
+		} catch (SQLException ex) {
+			LOGGER.error(ERR_CANNOT_GET_USER);
+		} finally {
+			dbManager.close(rs);
+		}
+		return user;
+	}
+
+	public String getUserNameById(int id) {
+		User user = null;
+		ResultSet rs = null;
+		try (Connection connection = getConnection();
+			 PreparedStatement pstmt =
+					 connection.prepareStatement(SQLConstants.GET_USER_BY_ID)) {
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("user_id"));
+				user.setName(rs.getString("name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setLogin(rs.getString("login"));
+				user.setPassword(rs.getString("password"));
+				user.setRole(rs.getString("role"));
+				user.setLocal(rs.getString("local"));
+			}
+
+		} catch (SQLException ex) {
+			LOGGER.error(ERR_CANNOT_GET_USER,ex);
+		} finally {
+			dbManager.close(rs);
+		}
+		return user.getName();
 	}
 
 	@Override
@@ -101,16 +150,15 @@ public class UserDAO implements AbstractDAO<User> {
 			               String login,
 			               String password) throws SQLException {
 
-		int i = 0;
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		try {
 			connection = getConnection();
 			pstmt = connection.prepareStatement(SQLConstants.INSERT_USER);
-			pstmt.setString(i++, name);
-			pstmt.setString(i++, lastName);
-			pstmt.setString(i++, login);
-			pstmt.setString(i++, password);
+			pstmt.setString(1, name);
+			pstmt.setString(2, lastName);
+			pstmt.setString(3, login);
+			pstmt.setString(4, password);
 			pstmt.executeUpdate();
 			connection.commit();
 		} catch (SQLException e) {

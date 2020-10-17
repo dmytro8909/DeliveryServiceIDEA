@@ -61,9 +61,11 @@ public class CreateOrderCommand implements ActionCommand {
 
         orderDAO.insertOrder(description, address, shippingDate,
                              cost, userId, directionId);
-
         if (request != null) {
             page = ConfigurationManager.getProperty("path.page.index");
+            request.getSession().removeAttribute("userOrders");
+            request.getSession().setAttribute("userOrders",
+                                              orderDAO.getUserOrders(userId));
         }
         return page;
     }

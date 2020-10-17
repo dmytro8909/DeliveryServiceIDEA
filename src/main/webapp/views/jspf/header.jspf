@@ -6,9 +6,9 @@
 				<c:if test="${not empty user}">
 					<c:choose>
 						<c:when test="${userRole == 'manager' }">
-							<a class="nav-link" 
-							   href="controller?command=listBids">
-							   Bids</a>
+							<!-- a class="nav-link"
+							   href="controller?command=bids">
+							   Bids</a -->
 						</c:when>
 						
 						<c:when test="${userRole == 'user'}">

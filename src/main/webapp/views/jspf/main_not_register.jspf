@@ -7,9 +7,6 @@
 		<form name="calculateShippingCostForm" method="GET" 
 		      action="/DeliveryService/index.jsp"
 		      class="needs-validation" novalidate>
-		      <%--
-			<input type="hidden" name="command" value="calculateShippingCost" />
-		      --%>
 			<div class="form-group">
     			<label for="selectDirection">Select direction</label>
 			    <select class="form-control" id="selectDirection" name="direction">

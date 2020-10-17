@@ -1,5 +1,7 @@
 package entities;
 
+import dao.UserDAO;
+
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -13,8 +15,9 @@ public class Order extends Entity {
 	private String address;
 	private BigDecimal cost;
 	private int userId;
+	private String userName;
 	private int directionId;
-	private Date date;
+	private String direction;
 
 	public Order() {}
 
@@ -42,6 +45,14 @@ public class Order extends Entity {
 
 	public void setShippingDate(Date shippingDate) {
 		this.shippingDate = shippingDate;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getAddress() {
@@ -76,12 +87,12 @@ public class Order extends Entity {
 		this.directionId = directionId;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getDirection() {
+		return direction;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDirection(String direction) {
+		this.direction = direction;
 	}
 
 	@Override
@@ -96,13 +107,14 @@ public class Order extends Entity {
 				Objects.equals(shippingDate, order.shippingDate) &&
 				Objects.equals(address, order.address) &&
 				Objects.equals(cost, order.cost) &&
-				Objects.equals(date, order.date);
+				Objects.equals(userName, order.userName) &&
+				Objects.equals(direction, order.direction);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, description, shippingDate, address,
-				            cost, userId, directionId, date);
+		return Objects.hash(id, description, shippingDate, address, cost,
+						    userId, userName, directionId, direction);
 	}
 
 	@Override
@@ -114,8 +126,9 @@ public class Order extends Entity {
 				", address='" + address + '\'' +
 				", cost=" + cost +
 				", userId=" + userId +
+				", userName='" + userName + '\'' +
 				", directionId=" + directionId +
-				", date=" + date +
+				", direction='" + direction + '\'' +
 				'}';
 	}
 }

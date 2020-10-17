@@ -6,7 +6,7 @@
 	<%@ include file="/views/jspf/head.jspf" %>
 	<body class="text-center">
 		<%@ include file="/views/jspf/header.jspf"%>
-		<%@ include file="/views/jspf/manager_main.jspf"%>
+		<%@ include file="/views/jspf/order_main.jspf"%>
 		<%@ include file="/views/jspf/footer.jspf"%>
 	</body>
 </html>

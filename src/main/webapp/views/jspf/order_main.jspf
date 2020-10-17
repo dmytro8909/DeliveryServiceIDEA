@@ -1,0 +1,28 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col"></div></div>
+		<div class="col"></div>
+            <h3>Order id: ${orders.id}</h3>
+            <h3>Order description: ${orders.description}</h3>
+            <h3>Shipping date: ${orders.shippingDate}</h3>
+            <h3>Address: ${orders.address}</h3>
+            <h3>Cost: ${orders.cost}</h3>
+            <h3>User ID: ${orders.userId}</h3>
+            <h3>User name: ${orders.userName}</h3>
+            <h3>Direction: ${orders.direction}</h3>
+            <form name="createBill" method="POST" action="controller">
+            <input type="hidden" name="command" value="createBill"
+            <input type="hidden" name="orderId" value="${orders.id}" />
+            <input type="hidden" name="orderDescription" value="${orders.description}" />
+            <input type="hidden" name="orderShippingDate" value="${orders.shippingDate}" />
+            <input type="hidden" name="orderAddress" value="${orders.address}" />
+            <input type="hidden" name="orderCost" value="${orders.cost}" />
+            <input type="hidden" name="orderUserName" value="${orders.userName}" />
+            <input type="hidden" name="orderDirection" value="${orders.direction}" />
+            <button type="submit" class="btn btn-lg btn-dark btn-block">
+            		Create bill</button>
+            </form>
+		</div>
+		<div class="col"></div></div>
+	</div>
+</div>

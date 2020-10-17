@@ -1,9 +1,8 @@
 
-i
-java:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(ÜÑã
-P
-java:S1161":Add the "@Override" annotation above this method signature(ˆÃ»·
-U
-java:S1161":Add the "@Override" annotation above this method signature(§ß»éıÿÿÿÿ
 —
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜íƒó
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜íƒó
+U
+java:S1161":Add the "@Override" annotation above this method signature(»ˆ»¶ùÿÿÿÿ
+V
+java:S1161":Add the "@Override" annotation above this method signature(’¹¾
+8õÛö•Ó.
