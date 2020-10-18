@@ -89,8 +89,49 @@ public class BillDAO implements AbstractDAO<Bill> {
     }
 
     private static java.sql.Date getDBdate(Date shDate) {
-        Date date = new Date();
-        return new java.sql.Date(date.getTime());
+        java.sql.Date sqlDate = new java.sql.Date(shDate.getTime());
+        return sqlDate;
+    }
+
+    public Bill getBillByOrderId(int orderId) {
+        Bill bill = null;
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_BILL_BY_ORDER_ID)) {
+            pstmt.setInt(1, orderId);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                bill = new Bill();
+                bill.setId(rs.getInt("bill_id"));
+                bill.setUserId(rs.getInt("orders_users_user_id"));
+                bill.setDirectionId(rs.getInt("orders_directions_direction_id"));
+                bill.setOrderDescription(rs.getString("order_description"));
+                bill.setOrderAddress(rs.getString("order_address"));
+                bill.setOrderDirection(rs.getString("order_direction"));
+                bill.setOrderShippingDate(rs.getDate("order_shipping_date"));
+                bill.setOrderCost(rs.getBigDecimal("order_cost"));
+                bill.setOrderUserName(rs.getString("order_user_name"));
+                bill.setStatus("status");
+            }
+
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_BILL, ex);
+        } finally {
+            dbManager.close(rs);
+        }
+        return bill;
+    }
+
+    public void updateStatusOnPaid(int billId) {
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.UPDATE_STATUS_ON_PAID)) {
+            pstmt.setInt(1, billId);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_UPDATE_BILL_STATUS, ex);
+        }
     }
 
     @Override

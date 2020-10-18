@@ -21,9 +21,11 @@
                             <td>${orders.description}</td>
                             <td>${orders.address}</td>
                             <td>${orders.cost}$</td>
-                            <td><a class="btn btn-dark"
-                                   href="controller?command=payBill"
-                                   role="button">Pay bill</a>
+                            <td>
+
+                            <a class="btn btn-dark"
+                                   href="controller?command=showBill&orderId=${orders.id}"
+                                   role="button">Bill</a>
                             </td>
 			            </tr>
                 	</c:forEach>

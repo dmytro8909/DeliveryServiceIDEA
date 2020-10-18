@@ -166,3 +166,17 @@ Y
 )src/main/webapp/views/jspf/bill_main.jspf,6/0/606de13b8f5fd9cc835a396c9e05e1376c6a7c6b
 Z
 *src/main/java/commands/PayBillCommand.java,1/4/14f2c82d5bc1eda3190fbc10452fdd76d549a09e
+W
+'src/main/java/commands/BidsCommand.java,f/0/f03ad9686d73b7642d3402181ba60d844d25ab24
+P
+ src/main/java/entities/Bill.java,d/d/ddfc042c8e4ab66d40e50a4f55705a2e5b37f63d
+N
+src/main/java/dao/BillDAO.java,e/3/e35c0cee2b80dff77e44052b23c8928aa9d3dd9d
+]
+-src/main/java/commands/CreateBillCommand.java,2/4/24675a83843ee1f0e209a30b257d4aa979475930
+Z
+*src/main/webapp/views/jspf/order_main.jspf,7/e/7e1960e4b6b19d8e26046849afbc22c36733c983
+V
+&src/main/webapp/views/order_review.jsp,0/8/08cce8beceb5a1284e19e2f22c313acadea92ab2
+^
+.src/main/java/commands/OrderReviewCommand.java,3/4/349de82e81a390e7b2483adc59f82a3edd3f9288

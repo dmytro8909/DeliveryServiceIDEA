@@ -1,0 +1,13 @@
+
+k
+java:S1192&"IDefine a constant instead of duplicating this literal "password" 4 times.(Ú½€öüÿÿÿÿ8Äïñ©Ó.
+j
+java:S1192""HDefine a constant instead of duplicating this literal "user_id" 4 times.(ŒÚáÊÿÿÿÿÿ8Äïñ©Ó.
+h
+java:S1192("FDefine a constant instead of duplicating this literal "local" 3 times.(€ûÚíıÿÿÿÿ8¿¡ˆªÓ.
+d
+java:S2259f"BA "NullPointerException" could be thrown; "user" is nullable here.(Æ½Í™ùÿÿÿÿ8ô¨‰ªÓ.
+c
+java:S1192%"FDefine a constant instead of duplicating this literal "login" 4 times.(Ê³ÌŸ8Äïñ©Ó.
+l
+java:S1192$"JDefine a constant instead of duplicating this literal "last_name" 4 times.(Ó÷®™şÿÿÿÿ8Ãïñ©Ó.

@@ -21,9 +21,21 @@
                             <td>${orders.description}</td>
                             <td>${orders.address}</td>
                             <td>${orders.cost}$</td>
-                            <td><a class="btn btn-dark"
-                                   href="controller?command=orderReview"
+                            <td>
+
+                            <!-- Status logic!!!
+                                if bill with this order id is present in
+                                the table of bills then button must be delete!!!
+                            -->
+
+
+                            <a class="btn btn-dark"
+                                   href="controller?command=orderReview&orderId=${orders.id}"
                                    role="button">Review</a>
+
+
+
+
                             </td>
                         </tr>
                     </c:forEach>

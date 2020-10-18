@@ -53,9 +53,9 @@ public enum CommandEnum {
 				this.command = new CreateOrderCommand();
 			}
 	},
-	PAYBILL {
+	SHOWBILL {
 			{
-				this.command = new PayBillCommand();
+				this.command = new ShowBillCommand();
 			}
 	},
 	BIDSCOMMAND {
@@ -71,6 +71,11 @@ public enum CommandEnum {
 	CREATEBILL {
 			{
 				this.command = new CreateBillCommand();
+			}
+	},
+	PAYBILL {
+			{
+				this.command = new PayBillCommand();
 			}
 	};
 		ActionCommand command;

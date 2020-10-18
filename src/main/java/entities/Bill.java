@@ -15,6 +15,7 @@ public class Bill extends Entity {
     private String orderUserName;
     private int userId;
     private int directionId;
+    private String status;
 
     public Bill() {}
 
@@ -98,6 +99,14 @@ public class Bill extends Entity {
         this.directionId = directionId;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,14 +121,15 @@ public class Bill extends Entity {
                 Objects.equals(orderDirection, bill.orderDirection) &&
                 Objects.equals(orderCost, bill.orderCost) &&
                 Objects.equals(orderShippingDate, bill.orderShippingDate) &&
-                Objects.equals(orderUserName, bill.orderUserName);
+                Objects.equals(orderUserName, bill.orderUserName) &&
+                Objects.equals(status, bill.status);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, orderId, orderDescription, orderAddress,
                             orderDirection, orderCost, orderShippingDate,
-                            orderUserName, userId, directionId);
+                            orderUserName, userId, directionId, status);
     }
 
     @Override
@@ -135,6 +145,7 @@ public class Bill extends Entity {
                 ", orderUserName='" + orderUserName + '\'' +
                 ", userId=" + userId +
                 ", directionId=" + directionId +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ package dao;
 import db.DBManager;
 import db.SQLConstants;
 import entities.Order;
+import entities.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import static exception.Messages.*;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static db.ConnectionPool.getConnection;
@@ -111,13 +113,44 @@ public class OrderDAO implements AbstractDAO<Order>{
     }
 
     private static java.sql.Date getDBdate(Date shDate) {
-        Date date = new Date();
-        return new java.sql.Date(date.getTime());
+        java.sql.Date sqlDate = new java.sql.Date(shDate.getTime());
+        return sqlDate;
     }
 
     @Override
     public Order get(int id) {
-        return null;
+        Order order = null;
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_ORDER_BY_ID)) {
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                order = new Order();
+                UserDAO userDAO = new UserDAO();
+                DirectionDAO directionDAO = new DirectionDAO();
+                String userName =
+                        userDAO.getUserNameById(rs.getInt("users_user_id"));
+                String direction =
+                        directionDAO.getDirectionById(rs.getInt("directions_direction_id"));
+                order.setId(rs.getInt("order_id"));
+                order.setShippingDate(rs.getDate("shipping_date"));
+                order.setDescription(rs.getString("description"));
+                order.setAddress(rs.getString("address"));
+                order.setCost(rs.getBigDecimal("cost"));
+                order.setUserId(rs.getInt("users_user_id"));
+                order.setUserName(userName);
+                order.setDirectionId(rs.getInt("directions_direction_id"));
+                order.setDirection(direction);
+            }
+
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_ORDER, ex);
+        } finally {
+            dbManager.close(rs);
+        }
+        return order;
     }
 
     @Override

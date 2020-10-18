@@ -1,28 +1,74 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col"></div></div>
 		<div class="col"></div>
-            <h3>Order id: ${orders.id}</h3>
-            <h3>Order description: ${orders.description}</h3>
-            <h3>Shipping date: ${orders.shippingDate}</h3>
-            <h3>Address: ${orders.address}</h3>
-            <h3>Cost: ${orders.cost}</h3>
-            <h3>User ID: ${orders.userId}</h3>
-            <h3>User name: ${orders.userName}</h3>
-            <h3>Direction: ${orders.direction}</h3>
-            <form name="createBill" method="POST" action="controller">
-            <input type="hidden" name="command" value="createBill"
-            <input type="hidden" name="orderId" value="${orders.id}" />
-            <input type="hidden" name="orderDescription" value="${orders.description}" />
-            <input type="hidden" name="orderShippingDate" value="${orders.shippingDate}" />
-            <input type="hidden" name="orderAddress" value="${orders.address}" />
-            <input type="hidden" name="orderCost" value="${orders.cost}" />
-            <input type="hidden" name="orderUserName" value="${orders.userName}" />
-            <input type="hidden" name="orderDirection" value="${orders.direction}" />
-            <button type="submit" class="btn btn-lg btn-dark btn-block">
-            		Create bill</button>
-            </form>
+		<div class="col">
+		    <table class="table">
+		        <tbody>
+		            <tr>
+		                <td>Order id:</td>
+		                <td>${orderId}</td>
+		            </tr>
+		            <tr>
+		                <td>Order description:</td>
+		                <td>${orderDescription}</td>
+		            </tr>
+		            <tr>
+		                <td>Shipping date:</td>
+		                <td>${orderDate}</td>
+		            </tr>
+		            <tr>
+		                <td>Address:</td>
+		                <td>${orderAddress}</td>
+		            </tr>
+		            <tr>
+		                <td>Cost:</td>
+		                <td>${orderCost}</td>
+		            </tr>
+		            <tr>
+		                <td>User id:</td>
+		                <td>${orderUserId}</td>
+		            </tr>
+		            <tr>
+		                <td>User name:</td>
+		                <td>${orderUserName}</td>
+		            </tr>
+		            <tr>
+		                <td>Direction:</td>
+		                <td>${orderDirection}</td>
+		            </tr>
+		            <tr>
+		                <td></td>
+		                <td>
+                            <form name="createBill" method="POST"
+                                  action="controller">
+                                <input type="hidden" name="command"
+                                       value="createBill" />
+                                <input type="hidden" name="orderId"
+                                       value="${orderId}" />
+                                <input type="hidden" name="orderDescription"
+                                       value="${orderDescription}" />
+                                <input type="hidden" name="orderShippingDate"
+                                       value="${orderDate}" />
+                                <input type="hidden" name="orderAddress"
+                                       value="${orderAddress}" />
+                                <input type="hidden" name="orderCost"
+                                       value="${orderCost}" />
+                                <input type="hidden" name="orderUserId"
+                                       value="${orderUserId}" />
+                                <input type="hidden" name="orderUserName"
+                                       value="${orderUserName}" />
+                                <input type="hidden" name="orderDirectionId"
+                                       value="${orderDirectionId}" />
+                                <input type="hidden" name="orderDirection"
+                                       value="${orderDirection}" />
+                                <button type="submit" class="btn btn-lg btn-dark">
+                                        Create bill</button>
+                            </form>
+		                </td>
+		            </tr>
+		        </tbody>
+            </table>
 		</div>
-		<div class="col"></div></div>
+		<div class="col"></div>
 	</div>
 </div>

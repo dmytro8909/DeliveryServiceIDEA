@@ -1,30 +1,36 @@
 
-I
-java:S35998",Use another way to initialize this instance.(Ÿ±”«8Ñ·µ–Ó.
-I
-java:S3599.",Use another way to initialize this instance.(Èƒ¦8å‰·Ò.
+{
+java:S11714"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8”˜öìÒ.
+N
+java:S3599=",Use another way to initialize this instance.(Îäşúÿÿÿÿ8¥ô¬©Ó.
+H
+java:S3599B",Use another way to initialize this instance.(…¬ğj8ÆÌ¬³Ó.
+N
+java:S35993",Use another way to initialize this instance.(¨öçÄüÿÿÿÿ8”˜öìÒ.
+B
+java:S3599",Use another way to initialize this instance.(×´Å·
+{
+java:S1171/"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8å‰·Ò.
+{
+java:S1171C"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÆÌ¬³Ó.
 t
 java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
 t
-java:S1171%"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
-B
-java:S3599",Use another way to initialize this instance.(×´Å·
-G
-java:S3599",Use another way to initialize this instance.(ĞĞÓŒúÿÿÿÿ
-t
-java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
-t
 java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
 t
-java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+java:S1171 "YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+A
+java:S3599$",Use another way to initialize this instance.(ËÛØ\
+G
+java:S3599",Use another way to initialize this instance.(˜ŒÌ’üÿÿÿÿ
 {
 java:S11719"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8Ñ·µ–Ó.
 G
 java:S3599",Use another way to initialize this instance.(ˆ•¤‡şÿÿÿÿ
-t
-java:S1171 "YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
 G
-java:S3599",Use another way to initialize this instance.(˜ŒÌ’üÿÿÿÿ
+java:S3599",Use another way to initialize this instance.(ĞĞÓŒúÿÿÿÿ
+B
+java:S3599",Use another way to initialize this instance.(§›Ÿç
 B
 java:S3599)",Use another way to initialize this instance.(°æ™Ö
 t
@@ -32,14 +38,20 @@ java:S1171*"YMove the contents of this initializer to a standard constructor or
 B
 java:S3599",Use another way to initialize this instance.(ÄÊ¼¾
 t
+java:S1171%"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+I
+java:S35998",Use another way to initialize this instance.(Ÿ±”«8Ñ·µ–Ó.
+t
 java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+I
+java:S3599.",Use another way to initialize this instance.(Èƒ¦8å‰·Ò.
 {
-java:S1171/"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8å‰·Ò.
+java:S1171>"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8¥ô¬©Ó.
+t
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+{
+java:S1171H"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8š˜ìÁÓ.
+t
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
 N
-java:S35993",Use another way to initialize this instance.(¨öçÄüÿÿÿÿ8”˜öìÒ.
-A
-java:S3599$",Use another way to initialize this instance.(ËÛØ\
-B
-java:S3599",Use another way to initialize this instance.(§›Ÿç
-{
-java:S11714"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8”˜öìÒ.
+java:S3599G",Use another way to initialize this instance.(©äôÁşÿÿÿÿ8š˜ìÁÓ.

@@ -2,7 +2,62 @@
 	<div class="row">
 		<div class="col"></div>
 		<div class="col">
+		    <table class="table">
+		        <tbody>
+		            <tr>
+		                <td>Bill id:</td>
+		                <td>${billId}</td>
+		            </tr>
+		            <tr>
+		                <td>Order description:</td>
+		                <td>${orderDescription}</td>
+		            </tr>
+		            <tr>
+		                <td>Shipping date:</td>
+		                <td>${orderDate}</td>
+		            </tr>
+		            <tr>
+		                <td>Address:</td>
+		                <td>${orderAddress}</td>
+		            </tr>
+		            <tr>
+		                <td>Cost:</td>
+		                <td>${orderCost}</td>
+		            </tr>
+		            <tr>
+		                <td>User id:</td>
+		                <td>${orderUserId}</td>
+		            </tr>
+		            <tr>
+		                <td>User name:</td>
+		                <td>${orderUserName}</td>
+		            </tr>
+		            <tr>
+		                <td>Direction:</td>
+		                <td>${orderDirection}</td>
+		            </tr>
+		            <tr>
+		                <td></td>
+		                <td>
+                            <!--form name="payBill" method="POST"
+                                  action="controller">
+                                <input type="hidden" name="command"
+                                       value="payBill" />
+                                <input type="hidden" name="billId"
+                                       value="${billId}" />
+                                <button type="submit" class="btn btn-lg btn-dark">
+                                        Pay bill</button>
+                            </form-->
 
+                            <a class="btn btn-dark"
+                               href="controller?command=payBill&billId=${billId}"
+                               role="button">Pay bill</a>
+
+
+		                </td>
+		            </tr>
+		        </tbody>
+            </table>
 		</div>
 		<div class="col"></div>
 	</div>
