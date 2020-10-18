@@ -2,6 +2,7 @@ package commands;
 
 import dao.BillDAO;
 import resource.ConfigurationManager;
+import resource.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,8 +22,11 @@ public class PayBillCommand implements ActionCommand {
 
         if (request != null) {
             page = ConfigurationManager.getProperty("path.page.client");
+        } else {
+            request.getSession().setAttribute("with_out_bill",
+                    MessageManager.getProperty("message.with_out_bill"));
         }
 
-        return null;
+        return page;
     }
 }

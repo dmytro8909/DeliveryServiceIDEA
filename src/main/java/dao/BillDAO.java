@@ -124,13 +124,20 @@ public class BillDAO implements AbstractDAO<Bill> {
     }
 
     public void updateStatusOnPaid(int billId) {
-        try (Connection connection = getConnection();
-             PreparedStatement pstmt =
-                     connection.prepareStatement(SQLConstants.UPDATE_STATUS_ON_PAID)) {
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        try {
+            connection = getConnection();
+            pstmt = connection.prepareStatement(SQLConstants.UPDATE_STATUS_ON_PAID);
             pstmt.setInt(1, billId);
             pstmt.executeUpdate();
+            connection.commit();
         } catch (SQLException ex) {
             LOGGER.error(ERR_CANNOT_UPDATE_BILL_STATUS, ex);
+            dbManager.rollback(connection);
+        } finally {
+            dbManager.close(connection);
+            dbManager.close(pstmt);
         }
     }
 

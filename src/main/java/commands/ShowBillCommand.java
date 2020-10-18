@@ -56,6 +56,6 @@ public class ShowBillCommand implements ActionCommand {
             request.setAttribute("orderDirection", direction);
         }
 
-        return null;
+        return page;
     }
 }
