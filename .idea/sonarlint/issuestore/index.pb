@@ -180,3 +180,9 @@ V
 &src/main/webapp/views/order_review.jsp,0/8/08cce8beceb5a1284e19e2f22c313acadea92ab2
 ^
 .src/main/java/commands/OrderReviewCommand.java,3/4/349de82e81a390e7b2483adc59f82a3edd3f9288
+R
+"target/classes/messages.properties,f/9/f9dfddf4176d85422536559d77d3157380ec6ddf
+[
++src/main/java/commands/ShowBillCommand.java,8/4/840d011ea8cf8b0a0ce1a90ac9b426971e2b28f1
+H
+sql/delivery_service.sql,6/f/6f26a78a5c2e1b587edae27d8c9bcfdb39ff5384

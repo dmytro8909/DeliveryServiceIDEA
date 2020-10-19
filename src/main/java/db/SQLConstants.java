@@ -15,6 +15,8 @@ public class SQLConstants {
 	public static final String GET_ALL_BILLS = "SELECT * FROM `bills`";
 	public static final String GET_RATE_BY_NAME = "SELECT * FROM `rates` WHERE `name`=?";
 	public static final String GET_USER_BY_ID = "SELECT * FROM `users` WHERE `user_id`=?";
+	public static final String GET_BILL_BY_ID = "SELECT * FROM `bills` WHERE `bill_id`=?";
+	public static final String GET_RATE_BY_ID = "SELECT * FROM `rates` WHERE `rates_id`=?";
 	public static final String GET_BILL_BY_ORDER_ID = "SELECT * FROM `bills` WHERE `orders_order_id`=?";
 	public static final String GET_USER_ORDERS = "SELECT * FROM `orders` WHERE `users_user_id`=?";
 	public static final String GET_DISTANCE_BY_ID = "SELECT * FROM `directions` WHERE `direction_id`=?";

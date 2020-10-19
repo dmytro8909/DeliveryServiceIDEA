@@ -154,13 +154,15 @@ public class OrderDAO implements AbstractDAO<Order>{
     }
 
     @Override
-    public Order update(Order order) {
-        return null;
-    }
-
-    @Override
-    public Order delete(Order order) {
-        return null;
+    public void delete(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_ORDER_BY_ID)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_DELETE_ORDER, ex);
+        }
     }
 
 }

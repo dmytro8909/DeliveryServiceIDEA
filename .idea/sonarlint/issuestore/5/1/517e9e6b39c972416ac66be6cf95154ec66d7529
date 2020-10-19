@@ -1,15 +1,15 @@
 
 j
 java:S1192"MDefine a constant instead of duplicating this literal "direction_id" 3 times.(¬µÁ8à¿Ó.
-d
-java:S2259R"GA "NullPointerException" could be thrown; "direction" is nullable here.(¿—İ€8à¿Ó.
-M
-java:S1135d"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
-f
-java:S1192 "IDefine a constant instead of duplicating this literal "distance" 3 times.(êóÁ8à¿Ó.
-M
-java:S1135^"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
 c
 java:S2259<"GA "NullPointerException" could be thrown; "direction" is nullable here.(¦Œäp8—Ö©Ó.
+M
+java:S1135^"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+M
+java:S1135d"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+d
+java:S2259R"GA "NullPointerException" could be thrown; "direction" is nullable here.(¿—İ€8à¿Ó.
 g
 java:S1192"JDefine a constant instead of duplicating this literal "direction" 3 times.(şÀÒÙ8à¿Ó.
+f
+java:S1192 "IDefine a constant instead of duplicating this literal "distance" 3 times.(êóÁ8à¿Ó.

@@ -11,6 +11,7 @@ import dao.UserDAO;
 import entities.User;
 import resource.ConfigurationManager;
 import resource.MessageManager;
+import static exception.Messages.ERR_CANNOT_INSERT_USER;
 
 public class RegisterCommand implements ActionCommand {
 	
@@ -35,14 +36,14 @@ public class RegisterCommand implements ActionCommand {
 		if (user == null) {
 			try {
 				userDAO.insertUser(name, lastName, login, password);
-				page = ConfigurationManager.getProperty("path.page.register_succeed");
+				page = ConfigurationManager.getProperty("path.page.index");
 			} catch (SQLException e) {
-				LOGGER.error("SQLException");
+				LOGGER.error(ERR_CANNOT_INSERT_USER);
 			}
 		} else {
 			request.setAttribute("errorLoginPassMessage",
 			MessageManager.getProperty("message.loginexists"));
-			page = ConfigurationManager.getProperty("path.page.register");
+			page = ConfigurationManager.getProperty("path.page.index");
 		}
 		return page;
 	}

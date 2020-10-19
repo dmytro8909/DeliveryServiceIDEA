@@ -103,13 +103,15 @@ public class UserDAO implements AbstractDAO<User> {
 	}
 
 	@Override
-	public User update(User user) {
-		return null;
-	}
-
-	@Override
-	public User delete(User user) {
-		return null;
+	public void delete(int id) {
+		try (Connection connection = getConnection();
+			 PreparedStatement pstmt =
+					 connection.prepareStatement(SQLConstants.GET_USER_BY_ID)) {
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException ex) {
+			LOGGER.error(ERR_CANNOT_DELETE_USER, ex);
+		}
 	}
 	
 	public User findUserByLogin(String login) {
@@ -126,8 +128,7 @@ public class UserDAO implements AbstractDAO<User> {
 				user = extractUser(rs);
 			}
 		} catch (SQLException ex) {
-			LOGGER.error(ERR_CANNOT_GET_USER);
-			dbManager.rollback(connection);
+			LOGGER.error(ERR_CANNOT_GET_USER,ex);
 		} finally {
 			dbManager.close(connection, pstmt, rs);
 		}

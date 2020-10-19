@@ -67,13 +67,15 @@ public class RatesDAO implements AbstractDAO<Rate>{
     }
 
     @Override
-    public Rate update(Rate rate) {
-        return null;
-    }
-
-    @Override
-    public Rate delete(Rate rate) {
-        return null;
+    public void delete(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_RATE_BY_ID)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_DELETE_RATE, ex);
+        }
     }
 
 }

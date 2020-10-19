@@ -20,7 +20,8 @@ import java.io.IOException;
  */
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -3777927504771334162L;
 	private static final Logger LOGGER = LogManager.getLogger(Controller.class);
        
     /**
@@ -49,9 +50,9 @@ public class Controller extends HttpServlet {
 	}
 
 	private void processRequest(HttpServletRequest request,
-								HttpServletResponse response)
-										throws ServletException, IOException{
-		response.setContentType("text/html;charset=UTF-8");
+			HttpServletResponse response)
+					throws ServletException, IOException{
+		request.setCharacterEncoding("UTF-8");
 		String page = null;
 		ActionFactory client = new ActionFactory();
 		ActionCommand command = client.defineCommand(request);
@@ -60,46 +61,19 @@ public class Controller extends HttpServlet {
 		} catch (Exception e) {
 			LOGGER.error("Page exception", e);
 		}
-		
-		if (page != null) {
-			RequestDispatcher dispatcher = 
+
+		if ((page != null) && (request.getMethod().equals("GET"))) {
+			RequestDispatcher dispatcher =
 					getServletContext().getRequestDispatcher(page);
 			dispatcher.forward(request, response);
+		} else if ((page != null) && (request.getMethod().equals("POST"))) {
+			response.sendRedirect(request.getContextPath() + page);
 		} else {
-			try{
-				page = ConfigurationManager.getProperty("path.page.error");
-				request.getSession().setAttribute("nullPage",
-				MessageManager.getProperty("message.nullpage"));
-				response.sendRedirect(request.getContextPath() + page);
-			} catch (Exception e) {
-				LOGGER.error("Page exception", e);
-			}
+			page = ConfigurationManager.getProperty("path.page.error");
+			request.getSession().setAttribute("nullPage",
+					MessageManager.getProperty("message.nullpage"));
+			response.sendRedirect(request.getContextPath() + page);
 		}
 	}
 
-//	private void postProcessRequest(HttpServletRequest request,
-//			HttpServletResponse response)
-//					throws ServletException, IOException{
-//		
-//		String page = null;
-//		ActionFactory client = new ActionFactory();
-//		ActionCommand command = client.defineCommand(request);
-//		try {
-//			page = command.execute(request);
-//		} catch (Exception e) {
-//			LOGGER.error("Page exception");
-//		}
-//		
-//		if (command != null) {
-//			response.sendRedirect(request.getContextPath() + page);
-//		} else {
-//			page = ConfigurationManager.getProperty("path.page.error");
-//			request.getSession().setAttribute("nullPage",
-//					MessageManager.getProperty("message.nullpage"));
-//			response.sendRedirect(request.getContextPath() + page);
-//		}
-//	}
-	
-	
-	
 }

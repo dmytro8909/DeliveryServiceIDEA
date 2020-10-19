@@ -143,16 +143,44 @@ public class BillDAO implements AbstractDAO<Bill> {
 
     @Override
     public Bill get(int id) {
-        return null;
+        Bill bill = null;
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_BILL_BY_ID)) {
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                bill = new Bill();
+                bill.setId(rs.getInt("bill_id"));
+                bill.setUserId(rs.getInt("orders_users_user_id"));
+                bill.setDirectionId(rs.getInt("orders_directions_direction_id"));
+                bill.setOrderDescription(rs.getString("order_description"));
+                bill.setOrderAddress(rs.getString("order_address"));
+                bill.setOrderDirection(rs.getString("order_direction"));
+                bill.setOrderShippingDate(rs.getDate("order_shipping_date"));
+                bill.setOrderCost(rs.getBigDecimal("order_cost"));
+                bill.setOrderUserName(rs.getString("order_user_name"));
+                bill.setStatus("status");
+            }
+
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_BILL, ex);
+        } finally {
+            dbManager.close(rs);
+        }
+        return bill;
     }
 
     @Override
-    public Bill update(Bill bill) {
-        return null;
-    }
-
-    @Override
-    public Bill delete(Bill bill) {
-        return null;
+    public void delete(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_BILL_BY_ID)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_DELETE_BILL, ex);
+        }
     }
 }

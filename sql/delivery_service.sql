@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `delivery_service`.`directions` (
   `distance` INT NOT NULL,
   PRIMARY KEY (`direction_id`),
   UNIQUE INDEX `city_id_UNIQUE` (`direction_id` ASC))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -72,7 +73,8 @@ CREATE TABLE IF NOT EXISTS `delivery_service`.`orders` (
     REFERENCES `delivery_service`.`directions` (`direction_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -84,7 +86,8 @@ CREATE TABLE IF NOT EXISTS `delivery_service`.`rates` (
   `rate` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`rates_id`),
   UNIQUE INDEX `rates_id_UNIQUE` (`rates_id` ASC))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -110,7 +113,8 @@ CREATE TABLE IF NOT EXISTS `delivery_service`.`bills` (
     REFERENCES `delivery_service`.`orders` (`order_id` , `users_user_id` , `directions_direction_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

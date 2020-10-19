@@ -12,6 +12,6 @@ public class BidsCommand implements ActionCommand {
         if (request != null) {
             page = ConfigurationManager.getProperty("path.page.bids");
         }
-        return null;
+        return page;
     }
 }

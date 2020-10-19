@@ -9,60 +9,12 @@ import java.sql.Statement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import entities.User;
 import exception.Messages;
 
 public class DBManager {
 	
-	private ConnectionPool pool = ConnectionPool.getInstance();
 	private static final Logger LOGGER = LogManager.getLogger(DBManager.class);
 
-	public String getManagerLogin() {
-		String login = null;
-		try (Connection con = pool.getConnection();
-			 Statement statement = con.createStatement();
-			 ResultSet resultSet = 
-					 statement.executeQuery(SQLConstants.FIND_MANAGER_LOGIN)) {
-				
-			if(resultSet.next()) {
-    			login = resultSet.getString("login");
-    		}	
-			
-		} catch (SQLException e) {
-			LOGGER.error("SQLException");
-		}
-		return login;
-	}
-	
-	public String getManagerPassword() {
-		String password = null;
-		try (Statement statement = 
-				pool.getConnection().createStatement();
-			 ResultSet resultSet = 
-				statement.executeQuery(SQLConstants.FIND_MANAGER_PASSWORD)) {
-				
-			if(resultSet.next()) {
-				password = resultSet.getString("password");
-    		}	
-			
-		} catch (SQLException e) {
-			LOGGER.error("SQLException");
-		}
-		return password;
-	}
-	
-	
-	
-//	public String getUserLogin() {
-//		
-//	}
-//	
-//	public String getUserPassword() {
-//		
-//	}
-	
-	
-	
 	// //////////////////////////////////////////////////////////
 	// DB util methods
 	// //////////////////////////////////////////////////////////
@@ -72,7 +24,7 @@ public class DBManager {
 			try {
 				con.rollback();
 			} catch (SQLException ex) {
-				LOGGER.error("Cannot rollback transaction", ex);
+				LOGGER.error(Messages.ERR_CANNOT_ROLLBACK_TRANSACTION, ex);
 			}
 		}
 	}
@@ -149,7 +101,7 @@ public class DBManager {
 			con.commit();
 			con.close();
 		} catch (SQLException ex) {
-			LOGGER.error("SQLException");
+			LOGGER.error(Messages.EER_CANNOT_COMMIT_AND_CLOSE_TRANSACTION);
 		}
 	}
 
@@ -164,7 +116,7 @@ public class DBManager {
 			con.rollback();
 			con.close();
 		} catch (SQLException ex) {
-			LOGGER.error("SQLException");
+			LOGGER.error(Messages.EER_CANNOT_ROLLBACK_AND_CLOSE_TRANSACTION);
 		}
 	}
 	

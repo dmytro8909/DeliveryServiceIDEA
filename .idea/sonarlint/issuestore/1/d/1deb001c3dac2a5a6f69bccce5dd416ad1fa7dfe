@@ -1,7 +1,15 @@
 
-k
-java:S1192#"NDefine a constant instead of duplicating this literal "users_user_id" 3 times.(¾Ùß¿8“½½Ó.
-O
-java:S1172q"-Remove this unused method parameter "shDate".(ÏÖşÿÿÿÿ8İêéÜÒ.
 z
-java:S1192%"XDefine a constant instead of duplicating this literal "directions_direction_id" 3 times.(®ë§Ûùÿÿÿÿ8Í¿µ¿Ó.
+java:S1192'"XDefine a constant instead of duplicating this literal "directions_direction_id" 5 times.(®ë§Ûùÿÿÿÿ8Í¿µ¿Ó.
+
+java:S1488t"_Immediately return this expression instead of assigning it to the temporary variable "sqlDate".(øİìœşÿÿÿÿ8×Ç²ÔÓ.
+f
+java:S1192("IDefine a constant instead of duplicating this literal "order_id" 3 times.(ñòğ¼8Á¸œÖÓ.
+i
+java:S1192*"LDefine a constant instead of duplicating this literal "description" 3 times.(— Æƒ8¢™¢ÖÓ.
+j
+java:S1192+"HDefine a constant instead of duplicating this literal "address" 3 times.(üÍİ¦ÿÿÿÿÿ8¢™¢ÖÓ.
+p
+java:S1192)"NDefine a constant instead of duplicating this literal "shipping_date" 3 times.(ˆóÌğûÿÿÿÿ8¢™¢ÖÓ.
+k
+java:S1192%"NDefine a constant instead of duplicating this literal "users_user_id" 5 times.(¾Ùß¿8“½½Ó.

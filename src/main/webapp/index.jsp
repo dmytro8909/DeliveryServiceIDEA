@@ -5,6 +5,10 @@
 	<%@ include file="/views/jspf/head.jspf" %>
 	<body class="text-center">
 		<%@ include file="/views/jspf/header.jspf"%>
+		<br/>
+		${registerSuccess}
+		${errorLoginPassMessage}
+		<br/>
 		<c:if test="${not empty user}">
             <c:choose>
                 <c:when test="${userRole == 'manager'}">

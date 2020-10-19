@@ -38,11 +38,6 @@ public enum CommandEnum {
 				this.command = new ToRegisterFormCommand();
 			}
 	},
-	CALCULATESHIPPINGCOST {
-			{
-				this.command = new CalculateShippingCostCommand();
-			}
-	},
 	NEWORDER {
 			{
 				this.command = new NewOrderCommand();

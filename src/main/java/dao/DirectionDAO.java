@@ -75,7 +75,7 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 				direction.setDistance(rs.getInt("distance"));
 			}
 		} catch (SQLException ex) {
-			LOGGER.error(ERR_CANNOT_GET_DISTANCE);
+			LOGGER.error(ERR_CANNOT_GET_DIRECTION);
 		} finally {
 			dbManager.close(rs);
 		}
@@ -84,21 +84,37 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 
 	@Override
 	public Direction get(int id) {
-		return null;
+		Direction direction = null;
+		ResultSet rs = null;
+		try (Connection connection = getConnection();
+			 PreparedStatement pstmt =
+					 connection.prepareStatement(SQLConstants.GET_DIRECTION_BY_ID)) {
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				direction = new Direction();
+				direction.setId(rs.getInt("direction_id"));
+				direction.setDirection(rs.getString("direction"));
+				direction.setDistance(rs.getInt("distance"));
+			}
+		} catch (SQLException ex) {
+			LOGGER.error(ERR_CANNOT_GET_DIRECTION);
+		} finally {
+			dbManager.close(rs);
+		}
+		return direction;
 	}
 
-
-
 	@Override
-	public Direction update(Direction t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Direction delete(Direction t) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(int id) {
+		try (Connection connection = getConnection();
+			 PreparedStatement pstmt =
+					 connection.prepareStatement(SQLConstants.GET_DIRECTION_BY_ID)) {
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException ex) {
+			LOGGER.error(ERR_CANNOT_DELETE_DIRECTION, ex);
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 
-~
-java:S19890"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(ëÅü—
-]	java:S125R"<This block of commented-out lines of code should be removed.(ç˘“ü˛ˇˇˇˇ8ûÜ≠Ä”.
-~
-java:S1989'"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(ëÅü—
+]	java:S1255"<This block of commented-out lines of code should be removed.(ç˘“ü˛ˇˇˇˇ8ûÜ≠Ä”.
+U	java:S106]"9Replace this use of System.out or System.err by a logger.(ù‘˜Ë8ÆÌ‰Î”.
+Ö
+java:S1989'"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(ëÅü—8Â¨È”.
+Ö
+java:S19890"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(ëÅü—8Â¨È”.
