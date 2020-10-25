@@ -86,8 +86,6 @@ g
 .classpath,3/5/354079a72b91a4280407c16a36f47d1986fd85a5
 Y
 )src/main/java/commands/ActionCommand.java,7/4/7411d2b4e324a73fa211444d62678b2f9cd95783
-h
-8src/main/java/commands/CalculateShippingCostCommand.java,a/c/ac4cde8bc63311df2fbeb93dc1f89eee67d3ceba
 C
 DeliveryService.iml,4/9/499d5ee2aeb5bd19a4855ec3fd92964a7e0b1930
 7
@@ -186,3 +184,11 @@ R
 +src/main/java/commands/ShowBillCommand.java,8/4/840d011ea8cf8b0a0ce1a90ac9b426971e2b28f1
 H
 sql/delivery_service.sql,6/f/6f26a78a5c2e1b587edae27d8c9bcfdb39ff5384
+Y
+)src/main/java/exception/AppException.java,2/b/2be208bf1c4e05875f4081a26f51f09fc784fbc5
+X
+(src/main/java/exception/DBException.java,5/c/5c052372c30597ee2e75424465075ddf8c807898
+\
+,src/main/webapp/views/jspf/error_header.jspf,1/d/1dd02a577bd61ba4decc815dbee3cb8f7e1865d4
+Z
+*src/main/webapp/views/jspf/error_main.jspf,2/6/26502eff0efcd1644394d46749dd5fd5ac972032

@@ -2,6 +2,7 @@ package commands;
 
 import dao.BillDAO;
 import entities.Bill;
+import exception.AppException;
 import resource.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ public class ShowBillCommand implements ActionCommand {
     private static final String PARAM_NAME_ORDER_ID = "orderId";
 
     @Override
-    public String execute(HttpServletRequest request) throws Exception {
+    public String execute(HttpServletRequest request) throws AppException {
         String page = null;
 
         String oId = request.getParameter(PARAM_NAME_ORDER_ID);

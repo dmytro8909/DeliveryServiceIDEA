@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import static exception.Messages.*;
 import static db.ConnectionPool.getConnection;
+
+import exception.AppException;
+import exception.DBException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -114,7 +117,7 @@ public class UserDAO implements AbstractDAO<User> {
 		}
 	}
 	
-	public User findUserByLogin(String login) {
+	public User findUserByLogin(String login) throws DBException {
 		User user = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -128,7 +131,9 @@ public class UserDAO implements AbstractDAO<User> {
 				user = extractUser(rs);
 			}
 		} catch (SQLException ex) {
-			LOGGER.error(ERR_CANNOT_GET_USER,ex);
+			LOGGER.error(ERR_CANNOT_GET_USER);
+			throw new DBException("User with this login doesn't exists in" +
+					   	 		   " the database!", ex);
 		} finally {
 			dbManager.close(connection, pstmt, rs);
 		}

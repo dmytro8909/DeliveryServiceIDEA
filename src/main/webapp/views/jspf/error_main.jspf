@@ -1,0 +1,20 @@
+<br/>
+Request from ${pageContext.errorData.requestURI} is failed
+<br/>
+Servlet name or type: ${pageContext.errorData.servletName}
+<br/>
+Message: <c:if test="${not empty requestScope.errorMessage}">
+         	${requestScope.errorMessage}
+         </c:if>
+         <c:if test="${not empty requestScope.nullPage}">
+         	${requestScope.nullPage}
+         </c:if>
+         <c:if test="${not empty requestScope.loginError}">
+         	${requestScope.loginError}
+         </c:if>
+<br/>
+Status code: ${pageContext.errorData.statusCode}
+<br/>
+Exception: ${pageContext.errorData.throwable}
+<br/>
+Cause:     ${pageContext.errorData.throwable.cause}

@@ -2,6 +2,25 @@
 	<div class="row">
 		<div class="col">
             <h3>Your bids, ${user.name}</h3>
+            <form name="sortBids" method="GET" action="controller">
+                <input type="hidden" name="command" value="sortBids"/>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <select class="form-control" id="sortBids" name="sortName">
+                            <option value="sortByShippingDate">Sort by Shipping date</option>
+                            <option value="sortByCost">Sort by Cost</option>
+                            <option value="resetFilter">Reset filter</option>
+                        </select>
+                    </div>
+                    <div class="form-group col">
+                        <button type="submit" class="btn btn-dark">Sort</button>
+                    </div>
+                    <div class="form-group col"></div>
+                    <div class="form-group col"></div>
+                    <div class="form-group col"></div>
+                    <div class="form-group col"></div>
+                </div>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
@@ -22,25 +41,15 @@
                             <td>${orders.address}</td>
                             <td>${orders.cost}$</td>
                             <td>
-
-                            <!-- Status logic!!!
-                                if bill with this order id is present in
-                                the table of bills then button must be delete!!!
-                            -->
-
-
-                            <a class="btn btn-dark"
+                                <a class="btn btn-dark"
                                    href="controller?command=orderReview&orderId=${orders.id}"
                                    role="button">Review</a>
-
-
-
-
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
+            <br/><br/>
 		</div>
 	</div>
 </div>

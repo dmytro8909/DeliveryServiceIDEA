@@ -1,12 +1,14 @@
 package commands;
 
 import dao.BillDAO;
+import exception.AppException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import resource.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -25,7 +27,7 @@ public class CreateBillCommand implements ActionCommand {
     BillDAO billDAO = new BillDAO();
 
     @Override
-    public String execute(HttpServletRequest request) throws Exception {
+    public String execute(HttpServletRequest request) throws AppException, ParseException {
         String page = null;
         String oId = request.getParameter(PARAM_NAME_ORDER_ID);
         String oUId = request.getParameter(PARAM_NAME_USER_ID);

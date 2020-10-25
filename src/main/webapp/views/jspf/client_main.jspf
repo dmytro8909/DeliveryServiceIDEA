@@ -2,6 +2,26 @@
 	<div class="row">
 		<div class="col">
 			<h3>Your orders, ${user.name}</h3>
+			<form name="sortOrders" method="GET" action="controller">
+                <input type="hidden" name="command" value="sortOrders"/>
+                <input type="hidden" name="userId" value="${user.id}"/>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <select class="form-control" id="sortOrders" name="sortName">
+                            <option value="sortByShippingDate">Sort by Shipping date</option>
+                            <option value="sortByCost">Sort by Cost</option>
+                            <option value="resetFilter">Reset filter</option>
+                        </select>
+                    </div>
+                    <div class="form-group col">
+                        <button type="submit" class="btn btn-dark">Sort</button>
+                    </div>
+                    <div class="form-group col"></div>
+                    <div class="form-group col"></div>
+                    <div class="form-group col"></div>
+                    <div class="form-group col"></div>
+                </div>
+            </form>
 			<table class="table">
 			    <thead>
 			        <tr>

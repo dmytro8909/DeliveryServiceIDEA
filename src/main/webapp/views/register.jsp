@@ -58,11 +58,7 @@
       						</div>
 						</div>	
 						<br/>
-							${loginerror}
-							${wrongAction}
-							${nullPage}
-						<br/>
-						<button type="submit" 
+						<button type="submit"
 							    class="btn btn-lg btn-dark btn-block">
 							    Registration</button>		
 					</form>

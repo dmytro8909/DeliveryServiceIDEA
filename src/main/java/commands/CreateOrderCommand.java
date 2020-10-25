@@ -3,12 +3,14 @@ package commands;
 import dao.DirectionDAO;
 import dao.OrderDAO;
 import dao.RatesDAO;
+import exception.AppException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import resource.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,7 +33,7 @@ public class CreateOrderCommand implements ActionCommand {
     private static DirectionDAO directionDAO = new DirectionDAO();
 
     @Override
-    public String execute(HttpServletRequest request) throws Exception {
+    public String execute(HttpServletRequest request) throws AppException, ParseException {
         String page = null;
 
         String uId = request.getParameter(PARAM_NAME_USER_ID);

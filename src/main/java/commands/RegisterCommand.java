@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import exception.AppException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,9 +31,14 @@ public class RegisterCommand implements ActionCommand {
 		String lastName = request.getParameter(PARAM_NAME_LAST_NAME);
 		String login = request.getParameter(PARAM_NAME_LOGIN);
 		String password = request.getParameter(PARAM_NAME_PASSWORD);
-	
-		User user = userDAO.findUserByLogin(login);
-		
+
+		User user = null;
+		try {
+			user = userDAO.findUserByLogin(login);
+		} catch (AppException e) {
+			e.getMessage();
+		}
+
 		if (user == null) {
 			try {
 				userDAO.insertUser(name, lastName, login, password);

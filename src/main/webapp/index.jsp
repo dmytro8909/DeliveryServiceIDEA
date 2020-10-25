@@ -8,6 +8,7 @@
 		<br/>
 		${registerSuccess}
 		${errorLoginPassMessage}
+		${nullPage}
 		<br/>
 		<c:if test="${not empty user}">
             <c:choose>

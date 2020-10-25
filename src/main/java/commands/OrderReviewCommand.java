@@ -3,6 +3,7 @@ package commands;
 import dao.DirectionDAO;
 import dao.OrderDAO;
 import entities.Order;
+import exception.AppException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import resource.ConfigurationManager;
@@ -17,7 +18,7 @@ public class OrderReviewCommand implements ActionCommand {
     private static final String PARAM_NAME_ORDER_ID = "orderId";
 
     @Override
-    public String execute(HttpServletRequest request) throws Exception {
+    public String execute(HttpServletRequest request) throws AppException {
         String page = null;
         String oId = request.getParameter(PARAM_NAME_ORDER_ID);
         int orderId = Integer.parseInt(oId);

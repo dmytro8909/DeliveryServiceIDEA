@@ -34,6 +34,7 @@ public class Messages {
 	public static final String ERR_CANNOT_DELETE_DIRECTION = "Cannot delete a direction from the database";
 
 	// General
+	public static final String ERR_CANNOT_OPEN_PAGE = "Cannot open the page";
 	public static final String ERR_CANNOT_CLOSE_CONNECTION = "Cannot close a connection";
 	public static final String ERR_CANNOT_CLOSE_RESULTSET = "Cannot close a result set";
 	public static final String ERR_CANNOT_CLOSE_STATEMENT = "Cannot close a statement";

@@ -34,10 +34,6 @@
       						</div>
 						</div>
 						<br/>
-							${loginerror}
-							${wrongAction}
-							${nullPage}
-						<br/>
 						    <button type="submit" 
 						            class="btn btn-lg btn-dark btn-block">
 						            Log in</button>

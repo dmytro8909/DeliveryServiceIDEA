@@ -56,6 +56,142 @@ public class OrderDAO implements AbstractDAO<Order>{
         return orders;
     }
 
+    public List<Order> getOrdersSortedByCost() {
+        List<Order> orders = new ArrayList<>();
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             Statement stmt = connection.createStatement()) {
+            rs = stmt.executeQuery(SQLConstants.GET_SORTED_ORDERS_BY_COST);
+            while (rs.next()) {
+                Order order = new Order();
+                UserDAO userDAO = new UserDAO();
+                DirectionDAO directionDAO = new DirectionDAO();
+                String userName =
+                        userDAO.getUserNameById(rs.getInt("users_user_id"));
+                String direction =
+                        directionDAO.getDirectionById(rs.getInt("directions_direction_id"));
+                order.setId(rs.getInt("order_id"));
+                order.setShippingDate(rs.getDate("shipping_date"));
+                order.setDescription(rs.getString("description"));
+                order.setAddress(rs.getString("address"));
+                order.setCost(rs.getBigDecimal("cost"));
+                order.setUserId(rs.getInt("users_user_id"));
+                order.setUserName(userName);
+                order.setDirectionId(rs.getInt("directions_direction_id"));
+                order.setDirection(direction);
+                orders.add(order);
+            }
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_LIST_OF_ORDERS);
+        } finally {
+            dbManager.close(rs);
+        }
+        return orders;
+    }
+
+public List<Order> getOrdersSortedByShippingDate() {
+        List<Order> orders = new ArrayList<>();
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             Statement stmt = connection.createStatement()) {
+            rs = stmt.executeQuery(SQLConstants.GET_SORTED_ORDERS_BY_SHIPPING_DATE);
+            while (rs.next()) {
+                Order order = new Order();
+                UserDAO userDAO = new UserDAO();
+                DirectionDAO directionDAO = new DirectionDAO();
+                String userName =
+                        userDAO.getUserNameById(rs.getInt("users_user_id"));
+                String direction =
+                        directionDAO.getDirectionById(rs.getInt("directions_direction_id"));
+                order.setId(rs.getInt("order_id"));
+                order.setShippingDate(rs.getDate("shipping_date"));
+                order.setDescription(rs.getString("description"));
+                order.setAddress(rs.getString("address"));
+                order.setCost(rs.getBigDecimal("cost"));
+                order.setUserId(rs.getInt("users_user_id"));
+                order.setUserName(userName);
+                order.setDirectionId(rs.getInt("directions_direction_id"));
+                order.setDirection(direction);
+                orders.add(order);
+            }
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_LIST_OF_ORDERS);
+        } finally {
+            dbManager.close(rs);
+        }
+        return orders;
+    }
+
+    public List<Order> getUserOrdersSortedByCost(int userId) {
+        List<Order> orders = new ArrayList<>();
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_SORTED_USER_ORDERS_BY_COST)) {
+            pstmt.setInt(1, userId);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                UserDAO userDAO = new UserDAO();
+                DirectionDAO directionDAO = new DirectionDAO();
+                String userName =
+                        userDAO.getUserNameById(rs.getInt("users_user_id"));
+                String direction =
+                        directionDAO.getDirectionById(rs.getInt("directions_direction_id"));
+                order.setId(rs.getInt("order_id"));
+                order.setShippingDate(rs.getDate("shipping_date"));
+                order.setDescription(rs.getString("description"));
+                order.setAddress(rs.getString("address"));
+                order.setCost(rs.getBigDecimal("cost"));
+                order.setUserId(rs.getInt("users_user_id"));
+                order.setUserName(userName);
+                order.setDirectionId(rs.getInt("directions_direction_id"));
+                order.setDirection(direction);
+                orders.add(order);
+            }
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_LIST_OF_ORDERS);
+        } finally {
+            dbManager.close(rs);
+        }
+        return orders;
+    }
+
+public List<Order> getUserOrdersSortedByShippingDate(int userId) {
+        List<Order> orders = new ArrayList<>();
+        ResultSet rs = null;
+        try (Connection connection = getConnection();
+             PreparedStatement pstmt =
+                     connection.prepareStatement(SQLConstants.GET_SORTED_USER_ORDERS_BY_SHIPPING_DATE)) {
+            pstmt.setInt(1, userId);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                UserDAO userDAO = new UserDAO();
+                DirectionDAO directionDAO = new DirectionDAO();
+                String userName =
+                        userDAO.getUserNameById(rs.getInt("users_user_id"));
+                String direction =
+                        directionDAO.getDirectionById(rs.getInt("directions_direction_id"));
+                order.setId(rs.getInt("order_id"));
+                order.setShippingDate(rs.getDate("shipping_date"));
+                order.setDescription(rs.getString("description"));
+                order.setAddress(rs.getString("address"));
+                order.setCost(rs.getBigDecimal("cost"));
+                order.setUserId(rs.getInt("users_user_id"));
+                order.setUserName(userName);
+                order.setDirectionId(rs.getInt("directions_direction_id"));
+                order.setDirection(direction);
+                orders.add(order);
+            }
+        } catch (SQLException ex) {
+            LOGGER.error(ERR_CANNOT_GET_LIST_OF_ORDERS);
+        } finally {
+            dbManager.close(rs);
+        }
+        return orders;
+    }
+
     public List<Order> getUserOrders(int userId) {
         List<Order> orders = new ArrayList<>();
         ResultSet rs = null;

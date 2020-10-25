@@ -72,6 +72,16 @@ public enum CommandEnum {
 			{
 				this.command = new PayBillCommand();
 			}
+	},
+	SORTBIDS {
+			{
+				this.command = new SortBidsCommand();
+			}
+	},
+	SORTORDERS {
+			{
+				this.command = new SortOrdersCommand();
+			}
 	};
 		ActionCommand command;
 		public ActionCommand getCurrentCommand() {

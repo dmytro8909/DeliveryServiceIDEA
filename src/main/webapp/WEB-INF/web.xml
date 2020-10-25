@@ -25,8 +25,12 @@
 		<location>/views/error/error.jsp</location>
 	</error-page>
 	<error-page>
-		<exception-type>java.lang.RuntimeException</exception-type>
+		<error-code>500</error-code>
 		<location>/views/error/error.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/views/error.jsp</location>
 	</error-page>
 	<description>MySQL</description>
 	<resource-ref>

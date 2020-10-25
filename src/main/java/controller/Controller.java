@@ -1,7 +1,12 @@
 package controller;
 
 import commands.ActionCommand;
+import commands.LoginCommand;
 import commands.factory.ActionFactory;
+import db.SQLConstants;
+import exception.AppException;
+import exception.DBException;
+import exception.Messages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import resource.ConfigurationManager;
@@ -14,11 +19,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
 
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/controller")
+@WebServlet(urlPatterns = "/controller", name = "Controller")
 public class Controller extends HttpServlet {
 
 	private static final long serialVersionUID = -3777927504771334162L;
@@ -37,7 +43,11 @@ public class Controller extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (AppException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -46,33 +56,49 @@ public class Controller extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (AppException e) {
+			LOGGER.error(e.getMessage());
+		}
 	}
 
 	private void processRequest(HttpServletRequest request,
 			HttpServletResponse response)
-					throws ServletException, IOException{
+			throws ServletException, IOException, AppException {
 		request.setCharacterEncoding("UTF-8");
-		String page = null;
+		String page;
 		ActionFactory client = new ActionFactory();
 		ActionCommand command = client.defineCommand(request);
 		try {
-			page = command.execute(request);
-		} catch (Exception e) {
-			LOGGER.error("Page exception", e);
-		}
+		        page = command.execute(request);
+            } catch (AppException | ParseException e) {
+				page = ConfigurationManager.getProperty("path.page.error");
+				LOGGER.error(Messages.ERR_CANNOT_OPEN_PAGE);
+//				request.setAttribute("errorMessage", e.getMessage());
+//                response.sendRedirect(request.getContextPath() + page);
 
+				request.setAttribute("nullPage",
+						MessageManager.getProperty("message.nullpage"));
+				response.sendRedirect(request.getContextPath() + page);
+
+		}
 		if ((page != null) && (request.getMethod().equals("GET"))) {
 			RequestDispatcher dispatcher =
 					getServletContext().getRequestDispatcher(page);
 			dispatcher.forward(request, response);
 		} else if ((page != null) && (request.getMethod().equals("POST"))) {
 			response.sendRedirect(request.getContextPath() + page);
-		} else {
+		}
+		else {
+			LOGGER.error(Messages.ERR_CANNOT_OPEN_PAGE);
 			page = ConfigurationManager.getProperty("path.page.error");
-			request.getSession().setAttribute("nullPage",
+			request.setAttribute("nullPage",
 					MessageManager.getProperty("message.nullpage"));
-			response.sendRedirect(request.getContextPath() + page);
+//			response.sendRedirect(request.getContextPath() + page);
+			RequestDispatcher dispatcher =
+					getServletContext().getRequestDispatcher(page);
+			dispatcher.forward(request, response);
 		}
 	}
 

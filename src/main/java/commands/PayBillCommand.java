@@ -1,6 +1,7 @@
 package commands;
 
 import dao.BillDAO;
+import exception.AppException;
 import resource.ConfigurationManager;
 import resource.MessageManager;
 
@@ -11,7 +12,7 @@ public class PayBillCommand implements ActionCommand {
     private static final String PARAM_NAME_BILL_ID = "billId";
 
     @Override
-    public String execute(HttpServletRequest request) throws Exception {
+    public String execute(HttpServletRequest request) throws AppException {
         String page = null;
 
         String bId = request.getParameter(PARAM_NAME_BILL_ID);
