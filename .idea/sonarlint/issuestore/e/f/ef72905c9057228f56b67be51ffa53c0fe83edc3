@@ -1,8 +1,8 @@
 
-ž
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò¦¿¦8×©ø±Ò.
-)
-java:S1700"Rename field "rate"(Ùâ±å
 V
-java:S1161":Add the "@Override" annotation above this method signature(’¹¾
+java:S1161#":Add the "@Override" annotation above this method signature(’¹¾
 8öÛö•Ó.
+ž
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò¦¿¦8×©ø±Ò.
+)
+java:S1700"Rename field "rate"(Ùâ±å

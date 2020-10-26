@@ -17,11 +17,20 @@ import java.util.List;
 
 import static db.ConnectionPool.getConnection;
 
+/**
+ * Class for realizing a part of DAO-pattern.
+ * Special for Order entity.
+ */
 public class OrderDAO implements AbstractDAO<Order>{
 
     DBManager dbManager = new DBManager();
     private static final Logger LOGGER = LogManager.getLogger(OrderDAO.class);
 
+    /**
+     * Method for getting list of all
+     * orders from the database.
+     * @return list of orders.
+     */
     @Override
     public List<Order> getAll() {
         List<Order> orders = new ArrayList<>();
@@ -56,6 +65,11 @@ public class OrderDAO implements AbstractDAO<Order>{
         return orders;
     }
 
+    /**
+     * Method for getting list of all
+     * orders from the database sorted by cost.
+     * @return list of orders sorted by cost.
+     */
     public List<Order> getOrdersSortedByCost() {
         List<Order> orders = new ArrayList<>();
         ResultSet rs = null;
@@ -89,7 +103,12 @@ public class OrderDAO implements AbstractDAO<Order>{
         return orders;
     }
 
-public List<Order> getOrdersSortedByShippingDate() {
+    /**
+     * Method for getting list of all
+     * orders from the database sorted by shipping date.
+     * @return list of orders sorted by shipping date.
+     */
+    public List<Order> getOrdersSortedByShippingDate() {
         List<Order> orders = new ArrayList<>();
         ResultSet rs = null;
         try (Connection connection = getConnection();
@@ -122,6 +141,12 @@ public List<Order> getOrdersSortedByShippingDate() {
         return orders;
     }
 
+    /**
+     * Method for getting list of all user's
+     * orders from the database sorted by cost.
+     * @param userId - user's id.
+     * @return list of user's orders sorted by cost.
+     */
     public List<Order> getUserOrdersSortedByCost(int userId) {
         List<Order> orders = new ArrayList<>();
         ResultSet rs = null;
@@ -157,7 +182,13 @@ public List<Order> getOrdersSortedByShippingDate() {
         return orders;
     }
 
-public List<Order> getUserOrdersSortedByShippingDate(int userId) {
+    /**
+     * Method for getting list of all user's
+     * orders from the database sorted by shipping date.
+     * @param userId - user's id.
+     * @return list of user's orders sorted by shipping date.
+     */
+    public List<Order> getUserOrdersSortedByShippingDate(int userId) {
         List<Order> orders = new ArrayList<>();
         ResultSet rs = null;
         try (Connection connection = getConnection();
@@ -192,6 +223,12 @@ public List<Order> getUserOrdersSortedByShippingDate(int userId) {
         return orders;
     }
 
+    /**
+     * Method for getting list of all user's
+     * orders from the database.
+     * @param userId - user's id.
+     * @return list of user's orders.
+     */
     public List<Order> getUserOrders(int userId) {
         List<Order> orders = new ArrayList<>();
         ResultSet rs = null;
@@ -219,6 +256,15 @@ public List<Order> getUserOrdersSortedByShippingDate(int userId) {
         return orders;
     }
 
+    /**
+     * Method for inserting order to the database.
+     * @param description - description in the order.
+     * @param address - address in the order.
+     * @param shippingDate - shipping date in the order.
+     * @param cost - cost in the order.
+     * @param userId - user's id in the order.
+     * @param directionId - direction's id in the order.
+     */
     public void insertOrder(String description,
                             String address,
                             Date shippingDate,
@@ -248,11 +294,21 @@ public List<Order> getUserOrdersSortedByShippingDate(int userId) {
         }
     }
 
+    /**
+     * Method for transforming type of date.
+     * @param shDate - date from java.util.Date;
+     * @return date from java.sql.Date;
+     */
     private static java.sql.Date getDBdate(Date shDate) {
         java.sql.Date sqlDate = new java.sql.Date(shDate.getTime());
         return sqlDate;
     }
 
+    /**
+     * Method for getting order by id.
+     * @param id - order's id.
+     * @return object of order.
+     */
     @Override
     public Order get(int id) {
         Order order = null;
@@ -289,6 +345,10 @@ public List<Order> getUserOrdersSortedByShippingDate(int userId) {
         return order;
     }
 
+    /**
+     * Method for deleting order by id from the database.
+     * @param id - order's id.
+     */
     @Override
     public void delete(int id) {
         try (Connection connection = getConnection();

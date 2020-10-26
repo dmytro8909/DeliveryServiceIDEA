@@ -39,14 +39,6 @@
    		<version>1.2</version>
 	</dependency>
 
-	
-	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina >
-	<dependency>
-	    <groupId>org.apache.tomcat</groupId>
-	    <artifactId>tomcat-catalina</artifactId>
-	    <version>9.0.26</version>
-	</dependency -->
-    
    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 	<dependency>
 	    <groupId>org.apache.logging.log4j</groupId>
@@ -67,6 +59,14 @@
 	    <artifactId>bootstrap</artifactId>
 	    <version>4.5.2</version>
 	</dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+	  <dependency>
+		  <groupId>org.mockito</groupId>
+		  <artifactId>mockito-all</artifactId>
+		  <version>1.10.19</version>
+		  <scope>test</scope>
+	  </dependency>
   </dependencies>
   
   <build>
@@ -83,5 +83,4 @@
         </plugin>
     </plugins>
   </build>
-  
 </project>

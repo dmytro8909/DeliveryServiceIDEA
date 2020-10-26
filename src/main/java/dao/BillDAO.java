@@ -16,11 +16,20 @@ import java.util.List;
 import static db.ConnectionPool.getConnection;
 import static exception.Messages.*;
 
+/**
+ * Class for realizing a part of DAO-pattern.
+ * Special for Bill entity.
+ */
 public class BillDAO implements AbstractDAO<Bill> {
 
     DBManager dbManager = new DBManager();
     private static final Logger LOGGER = LogManager.getLogger(BillDAO.class);
 
+    /**
+     * Method for getting list of all
+     * bills from the database.
+     * @return list of bills.
+     */
     @Override
     public List<Bill> getAll() {
         List<Bill> bills = new ArrayList<>();
@@ -57,6 +66,18 @@ public class BillDAO implements AbstractDAO<Bill> {
         return bills;
     }
 
+    /**
+     * Method for inserting new bill to the database.
+     * @param orderId - order's id in the bill.
+     * @param userId - user's id in the bill.
+     * @param directionId - direction's id in the bill.
+     * @param description - description in the bill.
+     * @param address - address in the bill.
+     * @param direction - direction in the bill.
+     * @param cost - cost of the order.
+     * @param shippingDate - shipping date of the order.
+     * @param name - user's name.
+     */
     public void insertBill(int orderId, int userId,
                            int directionId, String description,
                            String address, String direction,
@@ -88,11 +109,21 @@ public class BillDAO implements AbstractDAO<Bill> {
         }
     }
 
+    /**
+     * Method for transforming type of date.
+     * @param shDate - date from java.util.Date;
+     * @return date from java.sql.Date;
+     */
     private static java.sql.Date getDBdate(Date shDate) {
         java.sql.Date sqlDate = new java.sql.Date(shDate.getTime());
         return sqlDate;
     }
 
+    /**
+     * Method for getting bill by order id.
+     * @param orderId - order's id.
+     * @return bill which was found.
+     */
     public Bill getBillByOrderId(int orderId) {
         Bill bill = null;
         ResultSet rs = null;
@@ -123,6 +154,10 @@ public class BillDAO implements AbstractDAO<Bill> {
         return bill;
     }
 
+    /**
+     * Method for changing status of the bill.
+     * @param billId - bill's id.
+     */
     public void updateStatusOnPaid(int billId) {
         Connection connection = null;
         PreparedStatement pstmt = null;
@@ -141,6 +176,11 @@ public class BillDAO implements AbstractDAO<Bill> {
         }
     }
 
+    /**
+     * Method for getting a bill by id.
+     * @param id - bill's id.
+     * @return bill which was found.
+     */
     @Override
     public Bill get(int id) {
         Bill bill = null;
@@ -172,6 +212,10 @@ public class BillDAO implements AbstractDAO<Bill> {
         return bill;
     }
 
+    /**
+     * Method for deleting the bill by id.
+     * @param id - bill's id.
+     */
     @Override
     public void delete(int id) {
         try (Connection connection = getConnection();

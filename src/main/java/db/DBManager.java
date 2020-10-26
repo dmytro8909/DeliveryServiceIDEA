@@ -11,6 +11,9 @@ import org.apache.logging.log4j.Logger;
 
 import exception.Messages;
 
+/**
+ * Class with some utility methods.
+ */
 public class DBManager {
 	
 	private static final Logger LOGGER = LogManager.getLogger(DBManager.class);
@@ -19,6 +22,10 @@ public class DBManager {
 	// DB util methods
 	// //////////////////////////////////////////////////////////
 
+	/**
+	 * Method for rollbacking connection.
+	 * @param con - instance of connection.
+	 */
 	public void rollback(Connection con) {
 		if (con != null) {
 			try {

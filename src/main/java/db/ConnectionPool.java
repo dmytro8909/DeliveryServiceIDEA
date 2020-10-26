@@ -11,12 +11,19 @@ import javax.sql.DataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Class for connection pool realization
+ * and implements Singleton-pattern.
+ */
 public class ConnectionPool {
 
 	private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 	private static ConnectionPool instance = null;
 	private static DataSource dataSource;
 
+	/**
+	 * Default constructor
+	 */
 	private ConnectionPool() {}
 
 	static {
@@ -25,20 +32,29 @@ public class ConnectionPool {
 		try {
 			initCtx = new InitialContext();
 			envCtx = (Context) initCtx.lookup("java:comp/env");
-		// delivery_service - the name of data source
 		dataSource = (DataSource)envCtx.lookup("jdbc/DeliveryService");
 		} catch (NamingException e) {
 			LOGGER.error("NamingException", e);
 		}
 	}
 
+	/**
+	 * Synchronized method for getting the instance
+	 * of connection pool just once;
+	 * @return instance of connection pool.
+	 */
 	public static synchronized ConnectionPool getInstance() {
 		if (instance == null) {
 			instance = new ConnectionPool();
 		}
 		return instance;
 	}
-	
+
+	/**
+	 * Method for getting connection
+	 * to the database.
+	 * @return instance of connection.
+	 */
 	public static Connection getConnection() {
 		Connection connection = null;
 		try {

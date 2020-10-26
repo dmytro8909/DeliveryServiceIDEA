@@ -14,6 +14,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class CreateOrderCommand implements ActionCommand {
 
     private static final Logger LOGGER = LogManager.getLogger(CreateOrderCommand.class);
@@ -32,6 +36,15 @@ public class CreateOrderCommand implements ActionCommand {
     private static RatesDAO ratesDAO = new RatesDAO();
     private static DirectionDAO directionDAO = new DirectionDAO();
 
+    /**
+     * Method for realizing specified business-logic
+     * of command for creating an order.
+     * @param request - an instance of HttpServletRequest with
+     *                  request parameters;
+     * @return path to the necessary page;
+     * @throws AppException
+     * @throws ParseException
+     */
     @Override
     public String execute(HttpServletRequest request) throws AppException, ParseException {
         String page = null;
@@ -72,6 +85,14 @@ public class CreateOrderCommand implements ActionCommand {
         return page;
     }
 
+    /**
+     * Method for calculating a rate
+     * @param weight - weight of package
+     * @param length - length of package
+     * @param width - width of package
+     * @param height - height of package
+     * @return rate
+     */
     private static BigDecimal getRate(Double weight, Double length,
                                       Double width, Double height) {
         BigDecimal rate = null;
@@ -85,6 +106,12 @@ public class CreateOrderCommand implements ActionCommand {
         return rate;
     }
 
+    /**
+     * Method for forming of cost
+     * @param rate - rate
+     * @param distance - distance
+     * @return cost
+     */
     private static BigDecimal costForming(BigDecimal rate, int distance) {
         BigDecimal cost = null;
         if (rate != null && distance != 0) {

@@ -19,13 +19,25 @@ import resource.MessageManager;
 
 import static exception.Messages.ERR_CANNOT_GET_USER;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class LoginCommand implements ActionCommand {
 
 	private static final Logger LOGGER = LogManager.getLogger(LoginCommand.class);
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
 	private UserDAO userDAO = new UserDAO();
-	
+
+	/**
+	 * Method for realizing specified business-logic
+	 * of command for logging in.
+	 * @param request - an instance of HttpServletRequest with
+	 *                  request parameters;
+	 * @return path to the necessary page;
+	 * @throws AppException
+	 */
 	@Override
 	public String execute(HttpServletRequest request) throws AppException {
 		HttpSession session = request.getSession();

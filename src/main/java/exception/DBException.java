@@ -1,5 +1,8 @@
 package exception;
 
+/**
+ * Class for implements own database exception
+ */
 public class DBException extends AppException {
 
     public DBException() {

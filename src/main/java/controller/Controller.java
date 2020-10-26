@@ -22,7 +22,9 @@ import java.io.IOException;
 import java.text.ParseException;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class HttpServlet.
+ * Class which realizes the controller in the
+ * MVC-pattern.
  */
 @WebServlet(urlPatterns = "/controller", name = "Controller")
 public class Controller extends HttpServlet {
@@ -63,6 +65,18 @@ public class Controller extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Method which realizes Post-Redirect-Get-pattern
+	 * and transmits commands handing with redirection
+	 * to the necessary page.
+	 * @param request - an instance of HttpServletRequest with
+	 *                  request parameters;
+	 * @param response - an instance of HttpServletResponse with
+	 *                   response parameters;
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws AppException
+	 */
 	private void processRequest(HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException, AppException {

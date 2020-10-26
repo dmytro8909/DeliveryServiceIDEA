@@ -3,6 +3,9 @@ package entities;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/**
+ * Class Java Bean represents of rate entity.
+ */
 public class Rate extends Entity {
 
 	private static final long serialVersionUID = -2101974061154141532L;
@@ -11,29 +14,56 @@ public class Rate extends Entity {
 	private String name;
 	private BigDecimal rate;
 
+	/**
+	 * Default constructor.
+	 */
 	public Rate() {}
 
+	/**
+	 * Method for getting id
+	 * @return id
+	 */
 	@Override
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Method for setting id
+	 * @param id - id.
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Method for getting name
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Method for setting name
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Method for getting rate
+	 * @return rate
+	 */
 	public BigDecimal getRate() {
 		return rate;
 	}
 
+	/**
+	 * Method for setting rate
+	 * @param rate the rate to set
+	 */
 	public void setRate(BigDecimal rate) {
 		this.rate = rate;
 	}

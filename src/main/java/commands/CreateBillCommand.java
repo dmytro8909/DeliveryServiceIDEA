@@ -12,6 +12,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class CreateBillCommand implements ActionCommand {
 
     private static final String PARAM_NAME_ORDER_ID = "orderId";
@@ -26,6 +30,15 @@ public class CreateBillCommand implements ActionCommand {
 
     BillDAO billDAO = new BillDAO();
 
+    /**
+     * Method for realizing specified business-logic
+     * of command for creating a bill.
+     * @param request - an instance of HttpServletRequest with
+     *                  request parameters;
+     * @return path to the necessary page;
+     * @throws AppException
+     * @throws ParseException
+     */
     @Override
     public String execute(HttpServletRequest request) throws AppException, ParseException {
         String page = null;

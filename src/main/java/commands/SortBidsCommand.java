@@ -9,6 +9,10 @@ import resource.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class SortBidsCommand implements ActionCommand {
 
     private static final Logger LOGGER = LogManager.getLogger(SortBidsCommand.class);
@@ -16,6 +20,15 @@ public class SortBidsCommand implements ActionCommand {
     private static final String PARAM_NAME_SORT_NAME = "sortName";
     private static OrderDAO orderDAO = new OrderDAO();
 
+    /**
+     * Method for realizing specified business-logic
+     * of command for displaying page with sorted bids.
+     * @param request - an instance of HttpServletRequest with
+     *                  request parameters;
+     * @return path to the necessary page;
+     * @throws AppException
+     * @throws ParseException
+     */
     @Override
     public String execute(HttpServletRequest request) throws AppException, ParseException {
         String page = null;

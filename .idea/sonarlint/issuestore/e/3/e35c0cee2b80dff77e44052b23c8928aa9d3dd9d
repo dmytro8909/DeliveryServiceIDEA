@@ -1,0 +1,20 @@
+
+X	java:S107Q"<Method has 9 parameters, which is greater than 7 authorized.(—ÃÊ·8ø®¾§Ö.
+|
+java:S11929"_Define a constant instead of duplicating this literal "orders_directions_direction_id" 3 times.(ğËÔ¯8ø®¾§Ö.
+e
+java:S11921"HDefine a constant instead of duplicating this literal "bill_id" 3 times.(­ŠÚ8ø®¾§Ö.
+q
+java:S11923"TDefine a constant instead of duplicating this literal "order_shipping_date" 3 times.(‰Ûš¿8û‹·§Ö.
+r
+java:S11927"UDefine a constant instead of duplicating this literal "orders_users_user_id" 3 times.(š†‡ü8ø®¾§Ö.
+p
+java:S11925"NDefine a constant instead of duplicating this literal "order_address" 3 times.(‡Şé¦úÿÿÿÿ8û‹·§Ö.
+o
+java:S11924"RDefine a constant instead of duplicating this literal "order_description" 3 times.(ËªŒ›8û‹·§Ö.
+h
+java:S11926"KDefine a constant instead of duplicating this literal "order_cost" 3 times.(Ñ´ŠÂ8û‹·§Ö.
+
+java:S1488v"_Immediately return this expression instead of assigning it to the temporary variable "sqlDate".(øİìœşÿÿÿÿ8ø®¾§Ö.
+G
+java:S1481*"*Remove this unused "order" local variable.(ÈÃÖ8ø®¾§Ö.

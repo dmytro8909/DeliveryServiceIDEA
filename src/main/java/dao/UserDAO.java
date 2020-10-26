@@ -19,11 +19,20 @@ import db.SQLConstants;
 import db.DBManager;
 import entities.User;
 
+/**
+ * Class for realizing a part of DAO-pattern.
+ * Special for User entity.
+ */
 public class UserDAO implements AbstractDAO<User> {
 	
 	private DBManager dbManager = new DBManager();
 	private static final Logger LOGGER = LogManager.getLogger(UserDAO.class);
 
+	/**
+	 * Method for getting list of all
+	 * users from the database.
+	 * @return list of users.
+	 */
 	@Override
 	public List<User> getAll() {
 		List<User> users = new ArrayList<>();
@@ -51,6 +60,11 @@ public class UserDAO implements AbstractDAO<User> {
 		return users;
 	}
 
+	/**
+	 * Method for getting user by id form the database.
+	 * @param id - user's id.
+	 * @return object of user.
+	 */
 	@Override
 	public User get(int id) {
 		User user = null;
@@ -78,6 +92,11 @@ public class UserDAO implements AbstractDAO<User> {
 		return user;
 	}
 
+	/**
+	 * Method for getting user's name by id.
+	 * @param id - user's id.
+	 * @return user's name.
+	 */
 	public String getUserNameById(int id) {
 		User user = null;
 		ResultSet rs = null;
@@ -105,6 +124,10 @@ public class UserDAO implements AbstractDAO<User> {
 		return user.getName();
 	}
 
+	/**
+	 * Method for deleting user by id from the database.
+	 * @param id - user's id.
+	 */
 	@Override
 	public void delete(int id) {
 		try (Connection connection = getConnection();
@@ -116,7 +139,13 @@ public class UserDAO implements AbstractDAO<User> {
 			LOGGER.error(ERR_CANNOT_DELETE_USER, ex);
 		}
 	}
-	
+
+	/**
+	 * Method for getting user by login.
+	 * @param login - user's login.
+	 * @return - object of user.
+	 * @throws DBException
+	 */
 	public User findUserByLogin(String login) throws DBException {
 		User user = null;
 		PreparedStatement pstmt = null;
@@ -139,7 +168,7 @@ public class UserDAO implements AbstractDAO<User> {
 		}
 		return user;
 	}
-	
+
 	private User extractUser(ResultSet rs) throws SQLException {
 		User user = new User();
 		user.setId(rs.getInt("user_id"));
@@ -150,7 +179,15 @@ public class UserDAO implements AbstractDAO<User> {
 		user.setRole(rs.getString("role"));
 		return user;
 	}
-	
+
+	/**
+	 * Method for inserting new user to the database.
+	 * @param name - user's name.
+	 * @param lastName - user's last name.
+	 * @param login - user's login.
+	 * @param password - user's password.
+	 * @throws SQLException
+	 */
 	public void insertUser(String name, 
 			               String lastName, 
 			               String login,

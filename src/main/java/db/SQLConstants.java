@@ -1,5 +1,8 @@
 package db;
 
+/**
+ * Class with some SQL constants.
+ */
 public class SQLConstants {
 	public static final String FIND_MANAGER_LOGIN = 
 			"SELECT `login` FROM `users` WHERE `role`='manager'";

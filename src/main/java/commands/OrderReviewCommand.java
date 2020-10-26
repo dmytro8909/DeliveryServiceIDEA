@@ -12,11 +12,23 @@ import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class OrderReviewCommand implements ActionCommand {
 
     private static final Logger LOGGER = LogManager.getLogger(OrderReviewCommand.class);
     private static final String PARAM_NAME_ORDER_ID = "orderId";
 
+    /**
+     * Method for realizing specified business-logic
+     * of command for displaying page for review an order.
+     * @param request - an instance of HttpServletRequest with
+     * 	                request parameters;
+     * @return path to the necessary page;
+     * @throws AppException
+     */
     @Override
     public String execute(HttpServletRequest request) throws AppException {
         String page = null;

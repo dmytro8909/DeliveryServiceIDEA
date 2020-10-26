@@ -2,6 +2,9 @@ package entities;
 
 import java.util.Objects;
 
+/**
+ * Class Java Bean represents of user entity.
+ */
 public class User extends Entity {
 
 	private static final long serialVersionUID = 6176729694708676630L;
@@ -13,10 +16,14 @@ public class User extends Entity {
 	private String password;
 	private String role;
 	private String local;
-	
+
+	/**
+	 * Default constructor
+	 */
 	public User() {}
 	
 	/**
+	 * Method for getting id
 	 * @return the id
 	 */
 	public int getId() {
@@ -24,6 +31,7 @@ public class User extends Entity {
 	}
 
 	/**
+	 * Method for setting id
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
@@ -31,6 +39,7 @@ public class User extends Entity {
 	}
 
 	/**
+	 * Method for getting name
 	 * @return the name
 	 */
 	public String getName() {
@@ -38,6 +47,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for setting name
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -45,6 +55,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Methdo for getting last name
 	 * @return the lastName
 	 */
 	public String getLastName() {
@@ -52,6 +63,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for setting last name
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
@@ -59,6 +71,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for getting login
 	 * @return the login
 	 */
 	public String getLogin() {
@@ -66,6 +79,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for setting login
 	 * @param login the login to set
 	 */
 	public void setLogin(String login) {
@@ -73,6 +87,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for getting password
 	 * @return the password
 	 */
 	public String getPassword() {
@@ -80,6 +95,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for setting password
 	 * @param password the password to set
 	 */
 	public void setPassword(String password) {
@@ -87,6 +103,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for getting role
 	 * @return the role
 	 */
 	public String getRole() {
@@ -94,6 +111,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for setting role
 	 * @param role the role to set
 	 */
 	public void setRole(String role) {
@@ -101,6 +119,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for getting local
 	 * @return the local
 	 */
 	public String getLocal() {
@@ -108,6 +127,7 @@ public class User extends Entity {
 	}
 	
 	/**
+	 * Method for setting local
 	 * @param local the local to set
 	 */
 	public void setLocal(String local) {
@@ -130,7 +150,8 @@ public class User extends Entity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, lastName, login, password, role, local);
+		return Objects.hash(id, name, lastName, login,
+							password, role, local);
 	}
 
 	@Override

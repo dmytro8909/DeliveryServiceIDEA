@@ -14,6 +14,10 @@ import resource.ConfigurationManager;
 import resource.MessageManager;
 import static exception.Messages.ERR_CANNOT_INSERT_USER;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class RegisterCommand implements ActionCommand {
 	
 	private static final Logger LOGGER = LogManager.getLogger(RegisterCommand.class);
@@ -23,7 +27,14 @@ public class RegisterCommand implements ActionCommand {
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
 	private UserDAO userDAO = new UserDAO();
-	
+
+	/**
+	 * Method for realizing specified business-logic
+	 * of command for registration.
+	 * @param request - an instance of HttpServletRequest with
+	 *                  request parameters;
+	 * @return path to the necessary page;
+	 */
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;

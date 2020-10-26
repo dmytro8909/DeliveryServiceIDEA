@@ -11,6 +11,10 @@ import resource.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 
+/**
+ * Class for realizing specified business-logic
+ * of command.
+ */
 public class SortOrdersCommand implements ActionCommand {
 
     private static final Logger LOGGER = LogManager.getLogger(SortOrdersCommand.class);
@@ -20,12 +24,20 @@ public class SortOrdersCommand implements ActionCommand {
     private static OrderDAO orderDAO = new OrderDAO();
     private UserDAO userDAO = new UserDAO();
 
+    /**
+     * Method for realizing specified business-logic
+     * of command for displaying page with sorted orders.
+     * @param request - an instance of HttpServletRequest with
+     *                  request parameters;
+     * @return path to the necessary page;
+     * @throws AppException
+     * @throws ParseException
+     */
     @Override
     public String execute(HttpServletRequest request) throws AppException, ParseException {
         String page = null;
         Integer userId = Integer.parseInt(request.getParameter(PARAM_NAME_USER_ID));
         String sortName = request.getParameter(PARAM_NAME_SORT_NAME);
-
         if (sortName.equals("sortByShippingDate")) {
             request.getSession().setAttribute("userOrders",
                     orderDAO.getUserOrdersSortedByShippingDate(userId));

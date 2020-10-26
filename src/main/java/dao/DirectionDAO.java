@@ -12,11 +12,20 @@ import entities.Direction;
 import static db.ConnectionPool.getConnection;
 import static exception.Messages.*;
 
+/**
+ * Class for realizing a part of DAO-pattern.
+ * Special for Direction entity.
+ */
 public class DirectionDAO implements AbstractDAO<Direction> {
 
 	DBManager dbManager = new DBManager();
 	private static final Logger LOGGER = LogManager.getLogger(DirectionDAO.class);
 
+	/**
+	 * Method for getting list of all
+	 * directions from the database.
+	 * @return list of directions.
+	 */
 	@Override
 	public List<Direction> getAll() {
 	List<Direction> directions = new ArrayList<>();
@@ -38,6 +47,11 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 			return directions;
 	}
 
+	/**
+	 * Method for getting a distance by direction id.
+	 * @param id - direction's id.
+	 * @return direction's distance.
+	 */
 	public int getDistanceById(int id) {
 		Direction direction = null;
 		ResultSet rs = null;
@@ -60,6 +74,11 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 		return direction.getDistance();
 	}
 
+	/**
+	 * Method for getting direction by id.
+	 * @param id - direction's id.
+	 * @return direction.
+	 */
 	public String getDirectionById(int id) {
 		Direction direction = null;
 		ResultSet rs = null;
@@ -82,6 +101,11 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 		return direction.getDirection();
 	}
 
+	/**
+	 * Method for getting direction by id.
+	 * @param id - direction's id.
+	 * @return object of direction.
+	 */
 	@Override
 	public Direction get(int id) {
 		Direction direction = null;
@@ -105,6 +129,10 @@ public class DirectionDAO implements AbstractDAO<Direction> {
 		return direction;
 	}
 
+	/**
+	 * Method for deleting a direction from database.
+	 * @param id - direction's id.
+	 */
 	@Override
 	public void delete(int id) {
 		try (Connection connection = getConnection();

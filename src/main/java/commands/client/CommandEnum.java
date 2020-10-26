@@ -2,6 +2,9 @@ package commands.client;
 
 import commands.*;
 
+/**
+ * Enumeration with commands
+ */
 public enum CommandEnum {
 	TOINDEX {
 			{
@@ -83,8 +86,14 @@ public enum CommandEnum {
 				this.command = new SortOrdersCommand();
 			}
 	};
-		ActionCommand command;
-		public ActionCommand getCurrentCommand() {
+
+	ActionCommand command;
+
+	/**
+	 * Method for returning instance of commands class
+	 * @return instance of commands class
+	 */
+	public ActionCommand getCurrentCommand() {
 		return command;
-		}
+	}
 }

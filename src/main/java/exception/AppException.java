@@ -2,6 +2,9 @@ package exception;
 
 import java.io.Serializable;
 
+/**
+ * Class for implements own application exception
+ */
 public class AppException extends  Exception {
 
     public AppException() {

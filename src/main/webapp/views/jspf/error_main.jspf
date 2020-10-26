@@ -16,5 +16,8 @@ Message: <c:if test="${not empty requestScope.errorMessage}">
 Status code: ${pageContext.errorData.statusCode}
 <br/>
 Exception: ${pageContext.errorData.throwable}
+           ${pageContext.exception}
+<br/>
+Message from exception: ${pageContext.exception.message}
 <br/>
 Cause:     ${pageContext.errorData.throwable.cause}
