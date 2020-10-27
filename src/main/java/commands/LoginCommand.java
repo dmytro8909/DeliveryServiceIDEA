@@ -68,33 +68,10 @@ public class LoginCommand implements ActionCommand {
 				page = ConfigurationManager.getProperty("path.page.index");
 			}
 		} else {
-//			page = ConfigurationManager.getProperty("path.page.error");
-//			request.setAttribute("loginError",
-//					MessageManager.getProperty("message.loginerror"));
 			LOGGER.error(ERR_CANNOT_GET_USER);
 			throw new AppException(ERR_CANNOT_GET_USER);
 		}
 
-//		if (user == null || !pass.equals(user.getPassword())) {
-//			page = ConfigurationManager.getProperty("path.page.error");
-//			session.setAttribute("loginerror",
-//				MessageManager.getProperty("message.loginerror"));
-//			LOGGER.error(ERR_CANNOT_GET_USER);
-//		} else
-//		if (LoginLogic.checkLogin(login, pass) && "manager".equals(user.getRole())) {
-//			session.setAttribute("user", user);
-//			session.setAttribute("userRole", userRole);
-//			session.setAttribute("userId", userId);
-//			session.setAttribute("ordersList", orderDAO.getAll());
-//			page = ConfigurationManager.getProperty("path.page.index");
-//		} else if (LoginLogic.checkLogin(login, pass) && "user".equals(user.getRole())) {
-//			session.setAttribute("user", user);
-//			session.setAttribute("userRole", userRole);
-//			session.setAttribute("userId", userId);
-//			session.setAttribute("userOrders", orderDAO.getUserOrders(userId));
-//			page = ConfigurationManager.getProperty("path.page.index");
-//		}
-		
 		return page;
 	}
 }

@@ -198,8 +198,6 @@ Z
 -src/main/java/commands/SortOrdersCommand.java,f/a/fa35ee2cdd8cb92d13473456a2820614ad4a1cfc
 S
 #src/test/java/dao/OrderDAOTest.java,c/2/c26d700dca1d9f5217269833e29e279c9a61ae88
-V
-&src/test/java/dao/AbstractDAOTest.java,2/2/2244e9d49679d297ced37efbdf1c5a5a13e7b211
 R
 "src/test/java/dao/BillDAOTest.java,c/f/cf056d3abc20bad48f8e58b306d2b924bd086fb6
 W
@@ -218,11 +216,9 @@ T
 $src/test/java/entities/RateTest.java,b/5/b5be6f21b240722e32bb7a67e647672f941154b9
 T
 $src/test/java/entities/UserTest.java,e/2/e2a5919986bf8ce53d7e8ee2bb33c40d9d69133e
-W
-'src/test/java/logic/LoginLogicTest.java,3/1/31e43e23b7702bfc54582797cd52f78513229ebe
-d
-4src/test/java/resource/ConfigurationManagerTest.java,a/e/ae0f5015296cddadffa09b190bb307cc533a0bd6
-^
-.src/test/java/resource/MessageManagerTest.java,f/c/fc9482580a5834a53438e9ced6a21102458528ba
 T
 $src/test/java/entities/BillTest.java,1/7/17c645ea568fe35f7253df2370786db25a6ac93f
+T
+$src/main/resources/config.properties,f/a/fac4e92d770a0a6287eaad0e53c4efa350987f47
+j
+:.idea/libraries/Maven__org_mockito_mockito_all_1_10_19.xml,9/c/9cfa99a237cd45e04300a717186bf77f6939097c

@@ -89,9 +89,6 @@ public class Controller extends HttpServlet {
             } catch (AppException | ParseException e) {
 				page = ConfigurationManager.getProperty("path.page.error");
 				LOGGER.error(Messages.ERR_CANNOT_OPEN_PAGE);
-//				request.setAttribute("errorMessage", e.getMessage());
-//                response.sendRedirect(request.getContextPath() + page);
-
 				request.setAttribute("nullPage",
 						MessageManager.getProperty("message.nullpage"));
 				response.sendRedirect(request.getContextPath() + page);
@@ -109,7 +106,6 @@ public class Controller extends HttpServlet {
 			page = ConfigurationManager.getProperty("path.page.error");
 			request.setAttribute("nullPage",
 					MessageManager.getProperty("message.nullpage"));
-//			response.sendRedirect(request.getContextPath() + page);
 			RequestDispatcher dispatcher =
 					getServletContext().getRequestDispatcher(page);
 			dispatcher.forward(request, response);

@@ -1,15 +1,15 @@
 
-‚
-java:S1488¯"_Immediately return this expression instead of assigning it to the temporary variable "sqlDate".(øİìœşÿÿÿÿ8‚ìĞ¨Ö.
-i
-java:S11923"LDefine a constant instead of duplicating this literal "description" 7 times.(— Æƒ8¢™¢ÖÓ.
-f
-java:S11921"IDefine a constant instead of duplicating this literal "order_id" 7 times.(ñòğ¼8Á¸œÖÓ.
 l
 java:S1192."ODefine a constant instead of duplicating this literal "users_user_id" 13 times.(¾Ùß¿8“½½Ó.
-p
-java:S11922"NDefine a constant instead of duplicating this literal "shipping_date" 7 times.(ˆóÌğûÿÿÿÿ8¢™¢ÖÓ.
-{
-java:S11920"YDefine a constant instead of duplicating this literal "directions_direction_id" 13 times.(®ë§Ûùÿÿÿÿ8Í¿µ¿Ó.
+i
+java:S11923"LDefine a constant instead of duplicating this literal "description" 7 times.(— Æƒ8¢™¢ÖÓ.
+‚
+java:S1488¯"_Immediately return this expression instead of assigning it to the temporary variable "sqlDate".(øİìœşÿÿÿÿ8‚ìĞ¨Ö.
 j
 java:S11924"HDefine a constant instead of duplicating this literal "address" 7 times.(üÍİ¦ÿÿÿÿÿ8¢™¢ÖÓ.
+{
+java:S11920"YDefine a constant instead of duplicating this literal "directions_direction_id" 13 times.(®ë§Ûùÿÿÿÿ8Í¿µ¿Ó.
+p
+java:S11922"NDefine a constant instead of duplicating this literal "shipping_date" 7 times.(ˆóÌğûÿÿÿÿ8¢™¢ÖÓ.
+f
+java:S11921"IDefine a constant instead of duplicating this literal "order_id" 7 times.(ñòğ¼8Á¸œÖÓ.
